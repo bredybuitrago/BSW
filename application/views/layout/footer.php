@@ -48,5 +48,6 @@
 <script src="<?php echo base_url(); ?>assets/dist/js/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?php echo base_url(); ?>assets/dist/js/pages/dashboard.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/Utils/helper.js"></script>
 </body>
 </html>
