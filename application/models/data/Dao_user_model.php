@@ -30,6 +30,27 @@ class Dao_user_model extends CI_Model {
 
         return $query->result();
     }
+  
+    public function getUserByEmail($correo){
+        $query = $this->db->select('*')
+                            ->from('usuario')
+                            ->where('correo', $correo)
+                        ->get();
+
+        return $query->result();
+    }
+
+
+    public function getUserByEmailAndPassword($params){
+        $query = $this->db->select('*')
+                            ->from('usuario')
+                            ->where('correo', $params['correo'])
+                            ->where('password', $params['password'])
+                        ->get();
+
+        return $query->row_array();
+    }
+
 
 
     // public function getAllEngineers() {

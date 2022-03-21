@@ -41,6 +41,24 @@ $(function () {
         );
       },
 
+      alerRedirect: function(title = 'OK!', message, icon = 'success', url){
+        Swal.fire({
+          title: title,
+          text: message,
+          icon: icon,
+          showDenyButton: false,
+          showCancelButton: false,
+          confirmButtonText: 'Comenzar!',
+          allowOutsideClick: false,
+          allowEscapeKey: false
+        }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            window.location.href = url
+          } 
+        })
+      },
+
       miniAlert: function(message = 'Acción cancelada', icon = 'error'){
         const Toast = Swal.mixin({
           toast: true,

@@ -19,9 +19,10 @@
     <div class="card-body">
       <p class="login-box-msg">Registrar nuevo usuario</p>
 
-      <form  method="post" id="regsiter_form" action="<?php echo base_url(); ?>Register/Register_user">
+      <form  method="post" id="regsiter_form">
+      <!-- <form  method="post" id="regsiter_form" action="<?php echo base_url(); ?>Register/Register_user"> -->
         <div class="input-group mb-3">
-          <input type="text" class="form-control required" placeholder="Nombre" name="nombre">
+          <input type="text" class="form-control required" placeholder="Nombre" name="nombre" id="nombre">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -29,7 +30,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control required" placeholder="Crea un usuario" name="usuario">
+          <input type="text" class="form-control required" placeholder="Crea un usuario" name="usuario" id="usuario">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-male"></span>
@@ -37,7 +38,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="email" class="form-control required" placeholder="Correo" name="correo">
+          <input type="email" class="form-control required" placeholder="Correo" name="correo" id="correo">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -107,10 +108,6 @@
 <script src="<?php echo base_url(); ?>assets/dist/js/adminlte.min.js"></script>
 <!-- Sweet Alert -->
 <script src="<?php echo base_url(); ?>assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
-
-
-
-
 
 
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/Utils/helper.js"></script>

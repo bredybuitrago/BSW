@@ -6,12 +6,10 @@
   <title>BSW | Log in</title>
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/fontawesome-free/css/all.min.css">
-  <!-- icheck bootstrap -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-  <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Utils/helper.css">
 </head>
 <body class="hold-transition login-page">
 <div class="login-box">
@@ -23,9 +21,9 @@
     <div class="card-body">
       <p class="login-box-msg">Inicia sesión</p>
 
-      <form action="<?php echo base_url(); ?>" method="post">
+      <form  method="post" id="login_form">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" class="form-control required" placeholder="Email" id="correo">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -33,7 +31,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control required" placeholder="Password" id="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -79,12 +77,18 @@
   <!-- /.card -->
 </div>
 <!-- /.login-box -->
-
+<script type="text/javascript"> const base_url = "<?php echo base_url(); ?>";</script>
 <!-- jQuery -->
 <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="<?php echo base_url(); ?>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/dist/js/adminlte.min.js"></script>
+
+<script src="<?php echo base_url(); ?>assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/Utils/helper.js"></script>
+
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/login/login.js"></script>
 </body>
 </html>

@@ -37,26 +37,34 @@ $(function () {
         }
 
         if (flag) {
-          $('form').unbind('submit').submit();
+          // $('form').unbind('submit').submit();
           
-          // // Enviar formulario
-          // const data = {
+          // Enviar formulario
+          const data = {
+            nombre: $("#nombre").val(),
+            usuario: $("#usuario").val(),
+            correo: $("#correo").val(),
+            password: $("#password").val()
+
+          }
 
 
-          // }
+          $.post(base_url + '/Register/Register_user', {
+                data:  data
+            },
+            // función que recibe los datos
+            function(data) {
+              const obj = JSON.parse(data);
+              console.log(obj);
+              if (obj.success) {
+                helper.alerRedirect('OK!', obj.message, 'success', base_url + '/Login')
+              } else {
+                helper.alert('Error!', obj.message, 'error');
+              }
 
-
-          // $.post(base_url + '/Register/Register_user', {
-          //       data:  data
-          //   },
-          //   // función que recibe los datos
-          //   function(data) {
-          //       // convertir el json a objeto de javascript
-          //       const obj = JSON.parse(data);
-          //       console.log(data);
-          //       // ingeniero.printTableAsignadas(obj);
-          //   }
-          // );
+                // ingeniero.printTableAsignadas(obj);
+            }
+          );
 
 
 
