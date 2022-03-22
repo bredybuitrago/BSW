@@ -10,9 +10,9 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Utils/helper.css">
 </head>
-<body class="hold-transition register-page">
+<body class="hold-transition register-page fondo-register">
 <div class="register-box">
-  <div class="card card-outline card-primary" style="width: 30rem;">
+  <div class="card card-outline card-primary translucido" style="width: 30rem;">
     <div class="card-header text-center">
       <a href="<?php echo base_url(); ?>Inicio" class="h1"><b>BSW</b></a>
     </div>
@@ -90,7 +90,7 @@
       </div>
 
       <a href="<?php echo base_url(); ?>Login" class="text-center">Ya estoy registrado</a><br>
-      <a href="<?php echo base_url(); ?>Login" class="text-center">Quiero ofrecer mis servicios</a>
+      <a href="<?php echo base_url(); ?>Servicios" class="text-center">Quiero ofrecer mis servicios</a>
     </div>
     <!-- /.form-box -->
   </div><!-- /.card -->

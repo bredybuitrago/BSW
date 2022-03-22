@@ -10,11 +10,15 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Utils/helper.css">
+
+  <style >
+    
+  </style>
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page fondo-login">
 <div class="login-box">
   <!-- /.login-logo -->
-  <div class="card card-outline card-primary">
+  <div class="card card-outline card-primary translucido">
     <div class="card-header text-center">
       <a href="<?php echo base_url(); ?>Inicio" class="h1"><b>BSW</b></a>
     </div>

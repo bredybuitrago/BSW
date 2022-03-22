@@ -1,3 +1,31 @@
 .bc-red{
 	border-color: red;
 }
+
+.translucido{
+	    background: #ffffffe8;
+}
+
+.fondo-login {
+      background: url('../../../assets/images/futbol_11.jpg') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      background-size: cover;
+      overflow: hidden;
+    }
+
+.fondo-register{
+	background: url('../../../assets/images/futbol_2.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	overflow: hidden;
+}
+
+.fondo-forgot{
+	background: url('../../../assets/images/futbol_13.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	overflow: hidden;
+}

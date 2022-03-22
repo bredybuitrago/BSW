@@ -53,7 +53,7 @@
     <ul class="navbar-nav ml-auto">
       <li class="nav-item d-none d-sm-inline-block">
 
-        <a href="<?php echo base_url() ?>Login" class="nav-link"><i class="fas fa-user-tie"></i> Trabaja con nosotros</a>
+        <a href="<?php echo base_url() ?>Servicios" class="nav-link"><i class="fas fa-user-tie"></i> Trabaja con nosotros</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block" style="border: 1px solid #e1e1e1;">
 
