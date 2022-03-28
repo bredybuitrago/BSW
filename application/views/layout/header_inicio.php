@@ -25,13 +25,23 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/summernote/summernote-bs4.min.css">
+
+
+  <?php if ($this->uri->segment(1) == 'Inicio'): ?>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+  <?php endif ?>
+
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Utils/helper.css">
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed sidebar-collapse">
 <div class="wrapper">
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="<?php echo base_url(); ?>assets/images/BSW_logo.png" alt="BSW_logo" height="140" width="140">
+    <img class="animation__shake" src="<?php echo base_url(); ?>assets/images/logo_bsw_sin_fondo.png" alt="BSW_logo">
   </div>
 
   <!-- Navbar -->

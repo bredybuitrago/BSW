@@ -2,7 +2,7 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <strong>Copyright &copy; 2022 <a href="https://uninpahu.edu.co">Universidad Uninpahu</a>.</strong>
-    All rights reserved.
+    Todos los derechos reservados.
     <div class="float-right d-none d-sm-inline-block">
       <b>Versión</b> 1.0.0
     </div>
@@ -49,5 +49,13 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?php echo base_url(); ?>assets/dist/js/pages/dashboard.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/Utils/helper.js"></script>
+
+<?php if ($this->uri->segment(1) == 'Inicio'): ?>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/map_inicio.js"></script>
+
+<?php endif ?>
+
 </body>
 </html>

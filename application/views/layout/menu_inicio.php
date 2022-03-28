@@ -2,8 +2,8 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="<?php echo base_url(); ?>assets/dist/img/BSW_logo.png" alt="BSW Logo" class="brand-image img-circle elevation-3" style="opacity: .8; background: #FFF; max-height: 45px;">
-      <span class="brand-text font-weight-light">BSW</span>
+      <img src="<?php echo base_url(); ?>assets/images/logo_sin_letras.png" alt="BSW Logo" class="brand-image img-circle elevation-3" style="opacity: .8; background: #FFF; max-height: 45px;">
+      <span class="brand-text font-weight-light"><b>BSW</b></span>
     </a>
 
     <!-- Sidebar -->

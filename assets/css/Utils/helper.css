@@ -29,3 +29,9 @@
 	background-size: cover;
 	overflow: hidden;
 }
+
+
+.map_inicio {
+	position: relative;
+    height: 450px;
+}
