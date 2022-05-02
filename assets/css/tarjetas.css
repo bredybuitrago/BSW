@@ -11,7 +11,7 @@ section{
           box-sizing: border-box;
           padding: 140px 0;
 }
-.card{
+.carta{
   position: relative;
   max-width: 300px;
   height: auto;
@@ -24,26 +24,26 @@ section{
 -webkit-transition: .5s;
 transition: .5s;
 }
-.card:hover{
+.carta:hover{
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
 }
-.col-sm-4:nth-child(1) .card ,
-.col-sm-4:nth-child(1) .card .title .fa{
+.col-sm-4:nth-child(1) .carta ,
+.col-sm-4:nth-child(1) .carta .title .fa{
   background: linear-gradient(-45deg,#f403d1,#64b5f6);
 
 }
-.col-sm-4:nth-child(2) .card,
-.col-sm-4:nth-child(2) .card .title .fa{
+.col-sm-4:nth-child(2) .carta,
+.col-sm-4:nth-child(2) .carta .title .fa{
   background: linear-gradient(-45deg,#ffec61,#f321d7);
 
 }
-.col-sm-4:nth-child(3) .card,
-.col-sm-4:nth-child(3) .card .title .fa{
+.col-sm-4:nth-child(3) .carta,
+.col-sm-4:nth-child(3) .carta .title .fa{
   background: linear-gradient(-45deg,#24ff72,#9a4eff);
 
 }
-.card::before{
+.carta::before{
   content: '';
   position: absolute;
   bottom: 0;
@@ -97,7 +97,7 @@ list-style: none;
 color: #fff;
 font-size: 16px;
 }
-.card a {
+.carta a {
   position: relative;
   z-index: 2;
   background: #fff;
@@ -115,6 +115,6 @@ font-size: 16px;
           box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
 
 }
-.card a:hover{
+.carta a:hover{
     text-decoration: none;
 }

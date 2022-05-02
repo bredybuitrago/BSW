@@ -117,8 +117,10 @@ CREATE TABLE usuario (
     correo VARCHAR(250) NOT NULL,
     password VARCHAR(250) NOT NULL,
     estado_id INT NOT NULL,    
+    empresa_id INT NOT NULL,
     FOREIGN KEY (perfil_id) REFERENCES perfil (perfil_id),
-    FOREIGN KEY (estado_id) REFERENCES estado (estado_id)
+    FOREIGN KEY (estado_id) REFERENCES estado (estado_id),
+    FOREIGN KEY (empresa_id) REFERENCES empresa (empresa_id)
 );
 
 -- MENBRESIA
