@@ -25,9 +25,9 @@
     <div class="card-body">
       <p class="login-box-msg">Inicia sesión</p>
 
-      <form  method="post" id="login_form">
+      <form  method="post" id="login_form" action="<?php echo base_url(); ?>Register/login_user">
         <div class="input-group mb-3">
-          <input type="email" class="form-control required" placeholder="Email" id="correo">
+          <input type="email" class="form-control required" placeholder="Email" id="correo" name="correo">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -35,7 +35,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control required" placeholder="Password" id="Password">
+          <input type="password" class="form-control required" placeholder="Password" id="Password" name="Password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -53,7 +53,7 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Iniciar</button>
+            <button type="button" id="btn_submit_form" class="btn btn-primary btn-block">Iniciar</button>
           </div>
           <!-- /.col -->
         </div>
@@ -80,8 +80,12 @@
   </div>
   <!-- /.card -->
 </div>
+
+
 <!-- /.login-box -->
 <script type="text/javascript"> const base_url = "<?php echo base_url(); ?>";</script>
+<script type="text/javascript"> const response = '<?php echo json_encode( $this->session->flashdata("msg")); ?>';</script>
+
 <!-- jQuery -->
 <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->

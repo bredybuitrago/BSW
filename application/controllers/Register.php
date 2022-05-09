@@ -47,6 +47,7 @@ class Register extends CI_Controller {
 		$params['perfil_id'] = 1;
 		$params['identificacion'] = '';
 		$params['estado_id'] = 1;
+		$params['empresa_id'] = 1;
 
 		if($this->Dao_user_model->insertUser($params) > 0){
 			$datos = array(
@@ -134,28 +135,27 @@ class Register extends CI_Controller {
 
 	public function login_user()
 	{
-		$params['correo'] = $this->input->post('data')['correo'];
-		$params['password'] = $this->encrypt->sha1($this->input->post('data')['password']);
+		$params['correo'] = $this->input->post()['correo'];
+		$params['password'] = $this->encrypt->sha1($this->input->post()['Password']);
 
 		$usuario = $this->Dao_user_model->getUserByEmailAndPassword($params);
 
 		if ($usuario) {
-			$response = array(
-					'message' => $usuario,
-					'codigo' => '005',
-					'success' => true
-			);
-
 			$this->session->set_userdata($usuario);
+
+			redirect('RegistrarServicio');
+
+
 		} else {
-			$response = array(
-					'message' => 'Error en las credenciales',
-					'codigo' => '005',
-					'success' => false
-			);
+
+			$data['msg'] = array("error" => true, "message" => 'Error en las credenciales');
+			$this->session->set_flashdata('msg', $data);
+			redirect('Login');
+
+			// $this->load->view('login/v_login', $data);
+		
 		}
 
-		echo json_encode($response);
 	}
 
 }

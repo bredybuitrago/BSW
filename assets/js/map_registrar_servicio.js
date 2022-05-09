@@ -4,24 +4,19 @@ const map = new mapboxgl.Map({
   style: 'mapbox://styles/mapbox/streets-v11',
   // style: 'mapbox://styles/mapbox/satellite-v9',
   center: [-74.1113621765959, 4.618494967854005],
-  zoom: 13,
+  zoom: 12.5,
 
   // interactive: false
-  scrollZoom: false
+  // scrollZoom: false
 });
 var marker = [];
 new mapboxgl.Marker({});
 let c = [];
-let cordenadas_locales_get = JSON.parse(cordenadas_locales);
 
-for (var i = 0; i < cordenadas_locales_get.length; i++) {
-    c.push({lng:cordenadas_locales_get[i].cordenadas_lon, lat: cordenadas_locales_get[i].cordenadas_lat})
-}
-createMarker()
 
 function createMarker(){
 
-    for(var i = 0; i < c.length; i++){
+  for(var i = 0; i < c.length; i++){
       m = new mapboxgl.Marker({})
       .setLngLat([c[i].lng, c[i].lat])
       .addTo(map);
@@ -30,38 +25,21 @@ function createMarker(){
 }
 
 function add_marker (event) {
-  var coordinates = event.lngLat;
-  console.log(coordinates)
-  // console.log('Lng:', coordinates.lng, 'Lat:', coordinates.lat);
-  c.push(coordinates);
-  createMarker();
-  // console.log(c)
+
+    var coordinates = event.lngLat;
+    console.log(coordinates)
+    clearing();
+    // console.log('Lng:', coordinates.lng, 'Lat:', coordinates.lat);
+
+    $('#txt_coordenadas_lat').val(coordinates.lat);
+    $('#txt_coordenadas_lng').val(coordinates.lng);
+
+    c.push(coordinates);
+    createMarker();
+    console.log(c)
 }
 
-// map.on('click', add_marker);
-map.on('click', function(){
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
-    },
-    buttonsStyling: false
-})
-
-    swalWithBootstrapButtons.fire({
-        title: '¿Quieres encontrar los mejores campos?',
-        html: "Haz parte de nosotros!",
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonText: 'Sí, hagámoslo!',
-        cancelButtonText: 'Solo estoy mirando!',
-        reverseButtons: true
-  }).then((result) => {
-      if (result.isConfirmed) {
-        window.location.href = base_url + '/Login'
-    } 
-})
-});
+map.on('click', add_marker);
 
 function clearing() {
   c = [];
