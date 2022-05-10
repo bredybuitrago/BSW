@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-xl-8 col-lg-12 col-sm-12">
+  <div class="col-xl-12 col-lg-12 col-sm-12">
     <div class="div_carrusel">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -52,7 +52,7 @@
     </div>
   </div>
 
-  <div class="col-xl-4 col-lg-12 col-sm-12">
+  <div class="col-xl-12 col-lg-12 col-sm-12">
     <div>
     <!-- <button onclick="clearing()">Click me</button> -->
     <div id="map" style=" position:absolute; top:0; bottom:0; width:100%; min-height: 500px;"></div>
