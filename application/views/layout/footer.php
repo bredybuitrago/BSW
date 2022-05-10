@@ -15,6 +15,7 @@
   <!-- /.control-sidebar -->
 </div>
 
+<script type="text/javascript"> const base_url = "<?php echo base_url(); ?>";</script>
 
 <!-- jQuery -->
 <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
@@ -46,15 +47,32 @@
 <script src="<?php echo base_url(); ?>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url(); ?>assets/dist/js/adminlte.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<!-- Sweet Alert -->
+<script src="<?php echo base_url(); ?>assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+
+
 <script src="<?php echo base_url(); ?>assets/dist/js/pages/dashboard.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/Utils/helper.js"></script>
 
-<?php if ($this->uri->segment(1) == 'Inicio'): ?>
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+<?php if ($this->uri->segment(1) == 'Inicio' || $this->uri->segment(1) == ''): ?>
+    <script src="<?php echo base_url(); ?>assets/plugins/mapbox/mapbox-gl.js"></script>
+    <script src="<?php echo base_url(); ?>assets/plugins/mapbox/mapbox-gl-geocoder.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/map_inicio.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/map_inicio_datos.js"></script>
+<?php endif ?>
 
+<?php if ($this->uri->segment(1) == 'RegistrarServicio'): ?>
+    <script src="<?php echo base_url(); ?>assets/plugins/mapbox/mapbox-gl.js"></script>
+    <script src="<?php echo base_url(); ?>assets/plugins/mapbox/mapbox-gl-geocoder.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/plugins/dropzone/min/dropzone.min.js"></script>
+
+    <script src="<?php echo base_url(); ?>assets/js/map_registrar_servicio.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/gestor_archivos.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/registrar_servicio.js"></script>
+<?php endif ?>
+
+<?php if ($this->uri->segment(1) == 'Servicios'): ?>
+    <script src="<?php echo base_url(); ?>assets/js/formulario_servicios.js"></script>
 <?php endif ?>
 
 </body>

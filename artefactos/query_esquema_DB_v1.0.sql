@@ -66,6 +66,12 @@ CREATE TABLE local (
     FOREIGN KEY (barrio_id) REFERENCES barrio (barrio_id)
 );
 
+ALTER TABLE `bsw`.`local` 
+ADD COLUMN `cordenadas_lat` VARCHAR(45) NULL DEFAULT NULL AFTER `estado_id`,
+ADD COLUMN `cordenadas_lon` VARCHAR(45) NULL DEFAULT NULL AFTER `cordenadas_lat`;
+
+
+
 -- CANCHA
 CREATE TABLE cancha
 (
@@ -74,10 +80,13 @@ CREATE TABLE cancha
     local_id INT,
     tarifa_por_hora decimal(15,2),
     estado_id INT NOT NULL,
+    identificacion VARCHAR(100) NULL,
+    observacion VARCHAR(255) NULL,
     FOREIGN KEY (estado_id) REFERENCES estado (estado_id),
 	FOREIGN KEY (tipo_cancha_id) REFERENCES tipo_cancha (tipo_cancha_id),
     FOREIGN KEY (local_id) REFERENCES local (local_id)
 );
+
 
 -- FOTOS_CANCHA
 CREATE TABLE fotos_cancha (
@@ -117,8 +126,10 @@ CREATE TABLE usuario (
     correo VARCHAR(250) NOT NULL,
     password VARCHAR(250) NOT NULL,
     estado_id INT NOT NULL,    
+    empresa_id INT NOT NULL,
     FOREIGN KEY (perfil_id) REFERENCES perfil (perfil_id),
-    FOREIGN KEY (estado_id) REFERENCES estado (estado_id)
+    FOREIGN KEY (estado_id) REFERENCES estado (estado_id),
+    FOREIGN KEY (empresa_id) REFERENCES empresa (empresa_id)
 );
 
 -- MENBRESIA

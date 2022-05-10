@@ -27,9 +27,9 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/summernote/summernote-bs4.min.css">
 
 
-  <?php if ($this->uri->segment(1) == 'Inicio'): ?>
+  <?php if ($this->uri->segment(1) == 'Inicio' || $this->uri->segment(1) == ''): ?>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins/mapbox/mapbox-gl-geocoder.css" type="text/css">
   <?php endif ?>
 
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>

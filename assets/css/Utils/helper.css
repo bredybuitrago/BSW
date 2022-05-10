@@ -35,3 +35,15 @@
 	position: relative;
     height: 450px;
 }
+
+.d-contents{
+	display: contents;
+}
+
+.f-right{
+	float: right;
+}
+
+.m-top-10{
+	margin-top: 10px;
+}

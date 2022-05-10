@@ -59,6 +59,19 @@ $(function () {
         })
       },
 
+      // muestra un alert y al confirmar se refresca la pantalla
+        alert_refresh: function (title = 'ok', text = 'Se realizó con exito', icon = 'success') {
+            Swal.fire({
+                title: title,
+                html: text,
+                icon: icon,
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'continuar!'
+            }).then((result) => {
+                location.reload();
+            })
+        },
+
       miniAlert: function(message = 'Acción cancelada', icon = 'error'){
         const Toast = Swal.mixin({
           toast: true,
@@ -76,7 +89,30 @@ $(function () {
           icon: icon,
           title: message
         })
+      },
+
+      set_select: function(id_select, data, primer_opcion = null){
+        let options = '';
+          let contador = 0;
+          if (primer_opcion) {
+              options += `<option value="">${primer_opcion.primer_opcion}</option>`;
+          }
+          for (var i = 0; i < data.length; i++) {
+              for (var j in data[i]) {
+                  if (contador == 0) {
+                      options += `<option value="${data[i][j]}">`;
+                      contador = 1;
+                  } else {
+                      options += `${data[i][j]}</option>`;
+                      contador = 0;
+                  }
+              }
+          }
+          $(`#${id_select}`).html(options);
+
       }
+
+    
 
 
 
