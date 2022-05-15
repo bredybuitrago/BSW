@@ -7,7 +7,6 @@
     <h4 class="card-title">Busca tu mejor opción</h4>
   </div>
   <div class="card-body">
-
     <div class="row">
       <div class="col-sm-12">
         <div>
@@ -494,6 +493,6 @@
 
 
 
-
 <script type="text/javascript"> const cordenadas_locales = '<?php echo json_encode($locales); ?>';</script>
+
 
