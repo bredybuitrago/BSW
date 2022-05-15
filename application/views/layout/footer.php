@@ -59,6 +59,40 @@
     <script src="<?php echo base_url(); ?>assets/plugins/mapbox/mapbox-gl-geocoder.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/map_inicio.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/map_inicio_datos.js"></script>
+    <!-- e-commerce -->
+    <script src="<?php echo base_url(); ?>assets/commerce/js/jquery.superslides.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/bootstrap-select.js"></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/inewsticker.js"></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/bootsnav.js."></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/images-loded.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/isotope.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/owl.carousel.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/baguetteBox.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/jquery-ui.js"></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/jquery.nicescroll.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/form-validator.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/contact-form-script.js"></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/custom.js"></script>
+
+
+<?php endif ?>
+
+<!-- ecommerce -->
+<?php if ($this->uri->segment(1) == 'canchas' || $this->uri->segment(2) == 'Reservar_cancha'): ?>
+    <!-- e-commerce -->
+    <script src="<?php echo base_url(); ?>assets/commerce/js/jquery.superslides.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/bootstrap-select.js"></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/inewsticker.js"></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/bootsnav.js."></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/images-loded.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/isotope.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/owl.carousel.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/baguetteBox.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/form-validator.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/contact-form-script.js"></script>
+    <script src="<?php echo base_url(); ?>assets/commerce/js/custom.js"></script>
+
+
 <?php endif ?>
 
 <?php if ($this->uri->segment(1) == 'RegistrarServicio'): ?>

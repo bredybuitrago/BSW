@@ -124,6 +124,15 @@ class Canchas extends CI_Controller {
 		echo json_encode($datos);
 	}
 
+	public function Reservar_cancha(){
+		$this->load->view('layout/header_inicio');
+		$this->load->view('layout/menu_inicio');
+		$this->load->view('v_reservar_cancha');
+		$this->load->view('layout/footer');
+			
+		
+	}
+
 }
 
 /* End of file canchas.php */
