@@ -8,24 +8,12 @@
 
     <!-- Sidebar -->
     <div class="sidebar">      
-      <!-- SidebarSearch Form -->
-      <div class="form-inline mt-3">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
-            <a href="<?php echo base_url(); ?>Principal Aliado" class="nav-link <?php if ($this->uri->segment(1) == 'PrincipalAliado'): ?> active <?php endif ?> ">
-              <i class="fas fa-edit"></i>
+            <a href="<?php echo base_url(); ?>PrincipalAliado" class="nav-link <?php if ($this->uri->segment(1) == 'PrincipalAliado'): ?> active <?php endif ?> ">
+              <i class="fas fa-table"></i>
               <p>Principal</p>
             </a>
           </li>
