@@ -21,6 +21,8 @@ class PrincipalAliado extends CI_Controller {
 		try {
 			$datos = array();
 			$idAliado = $this->session->usuario_id;
+
+			
 			$canchas = $this->Dao_cancha_model->getCanchasByIdAliado($idAliado);
 
 			$retorno = array(

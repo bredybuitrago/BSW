@@ -24,16 +24,25 @@ class Dao_cancha_model extends CI_Model {
     public function getCanchasByIdAliado($usuario_id){
          $query = $this->db->query("
             SELECT 
-            e.nombre_empresa AS empresa,
-            l.nombre_local AS local,
-            l.direccion,
-            l.contacto AS telefono,
-            l.numero_canchas,
-            b.barrio
+                c.cancha_id,
+                e.nombre_empresa AS empresa,
+                l.nombre_local AS local,
+                l.direccion,
+                b.barrio,
+                c.identificacion AS cancha,
+                tc.tipo_cancha,
+                c.tarifa_por_hora AS tarifa,
+                c.observacion AS observacion,
+                c.estado_id AS activa            
             FROM local l 
-            INNER JOIN empresa e ON e.empresa_id = l.empresa_id
-            INNER JOIN barrio b ON b.barrio_id = l.barrio_id
-            INNER JOIN usuario u ON u.empresa_id = e.empresa_id;
+                INNER JOIN empresa e ON e.empresa_id = l.empresa_id
+                INNER JOIN barrio b ON b.barrio_id = l.barrio_id
+                INNER JOIN usuario u ON u.empresa_id = e.empresa_id
+                INNER JOIN cancha c ON c.local_id = l.local_id
+                INNER JOIN tipo_cancha tc ON tc.tipo_cancha_id = c.tipo_cancha_id
+            WHERE 
+                u.usuario_id = $usuario_id
+            ;
         ");
 
         return $query->result();   

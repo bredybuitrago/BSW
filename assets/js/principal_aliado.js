@@ -6,8 +6,7 @@ principalAliado = {
 
     //Eventos de la ventana.
     events: function () {
-         $('#tabla_canchas').on('click', 'a.btn_editar_cancha', principalAliado.onClickShowModalDet);
-        // $('#tablaDetalleResCanchasAliado').on('click', 'a.ver-det', principalAliado.onClickShowModalDet);
+        $('#tabla_canchas').on('click', 'a.btn_editar_cancha', principalAliado.onClickShowModalEdit);
     },
 
     getCanchasAliado: function () {
@@ -17,8 +16,6 @@ principalAliado = {
                 },
                 function (data) {
                     const obj = JSON.parse(data);
-
-                    console.log(obj.canchas)
                     principalAliado.printTableCanchasAliado(obj.canchas);
                 });
     },
@@ -29,9 +26,12 @@ principalAliado = {
                 {title: "Empresa", data: "empresa"},
                 {title: "Local", data: "local"},
                 {title: "Dirección", data: "direccion"},
-                {title: "Contacto", data: "telefono"},
-                {title: "Nro Canchas", data: "numero_canchas"},
                 {title: "Barrio", data: "barrio"},
+                {title: "Cancha", data: "cancha"},
+                {title: "Tipo", data: "tipo_cancha"},
+                {title: "tarifa", data: principalAliado.setFormatMoneyTable},
+                {title: "Observación", data: "observacion"},
+                {title: "Activa", data: principalAliado.setCheckEstadoCanchaTable},
                 {title: "opc", data: principalAliado.getButtons},
             ]));
     },
@@ -168,11 +168,74 @@ principalAliado = {
     },
 
     getButtons: function (obj) {
-        boton = '<div class="btn-group">'
+        let boton = '<div class="btn-group">'
                 + '<a class="btn btn-outline-info btn-block btn-xs btn_editar_cancha" title="Editar Cancha"><i class="fas fa-edit"></i></a>'
                 + '</div>';
         return boton;
     },
+
+    setCheckEstadoCanchaTable: function(obj){
+        let check = ''
+
+        if (obj.activa == "1") {
+            check = `<i class="fas fa-check text-success"></i>`;
+        } else {
+            check = `<i class="fas fa-times text-danger"></i>`;
+        }
+
+
+        return check;
+    },
+
+    setFormatMoneyTable: function(obj){
+        return (obj.tarifa * 1).toLocaleString("es-CO", {style: "currency",currency: "COP"});
+    },
+
+    onClickShowModalEdit:function () {
+        principalAliado.limpiarFormulario();
+
+        var aLinkLog = $(this);
+        var trParent = aLinkLog.parents('tr');
+        var record = tabla_cont_out.row(trParent).data();
+        
+        principalAliado.fillFormModal(record);
+    },
+
+
+    limpiarFormulario: function(){
+        $('#title_modal').html('');
+        $('#txt_identificacion').val('');
+        $('#ddl_tipo_cancha').val('');
+        $('#txt_tarifa_por_hora').val('');
+        $('#txt_observaciones').val('');
+        $('cancha_activa').attr('checked', true);
+    },
+
+
+
+    onClickShowModalDet: function () {
+            document.getElementById("formModal_detalle").reset();
+            $('#title_modal').html('');
+            var aLinkLog = $(this);
+            var trParent = aLinkLog.parents('tr');
+            var record = tabla_cont_out.row(trParent).data();
+            fTiempos.fillFormModal(record);
+    },
+
+    fillFormModal: function (registros) {
+        $.post(baseurl + '/OtHija/c_fillmodals',
+                {
+                    idOth: registros.id_orden_trabajo_hija // parametros que se envian
+                },
+                function (data) {
+                   $.each(data, function (i, item) {
+                        $('#mdl_' + i).val(item);
+                    }); 
+                });
+        $('#title_modal').html('<b>Detalle de la orden  ' + registros.id_orden_trabajo_hija + '</b>');
+        $('#Modal_detalle').modal('show');
+    },
+
 
 
 };
