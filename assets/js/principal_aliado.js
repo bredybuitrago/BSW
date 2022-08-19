@@ -6,7 +6,7 @@ principalAliado = {
 
     //Eventos de la ventana.
     events: function () {
-        // $('#tabla_canchas').on('click', 'a.ver-det', principalAliado.onClickShowModalDet);
+         $('#tabla_canchas').on('click', 'a.btn_editar_cancha', principalAliado.onClickShowModalDet);
         // $('#tablaDetalleResCanchasAliado').on('click', 'a.ver-det', principalAliado.onClickShowModalDet);
     },
 
@@ -25,16 +25,15 @@ principalAliado = {
 
     printTableCanchasAliado: function (data) {
         ///lleno la tabla con los valores enviados
-        principalAliado.tabla_pendientes = $('#tabla_canchas').DataTable(principalAliado.configTableSearchColumn(data, [
+        principalAliado.tabla_pendientes = $('#tabla_canchas').DataTable(principalAliado.configTableDefault(data, [
                 {title: "Empresa", data: "empresa"},
                 {title: "Local", data: "local"},
                 {title: "Dirección", data: "direccion"},
                 {title: "Contacto", data: "telefono"},
                 {title: "Nro Canchas", data: "numero_canchas"},
                 {title: "Barrio", data: "barrio"},
-            ], 'tabla_canchas', '', '', ''));
-
-
+                {title: "opc", data: principalAliado.getButtons},
+            ]));
     },
     
     // Función que permite pintar la tabla con los campos de busqueda
@@ -110,10 +109,67 @@ principalAliado = {
         }
     },
 
+    configTableDefault: function(data, columns) {
+        return {
+            data: data,
+            columns: columns,
+            "language": {
+                "url": base_url + "/assets/plugins/datatables/lang/es.json"
+            },
+            dom: 'Blfrtip',
+            buttons: [
+                {
+                    text: '<i class="far fa-file-excel"></i>',
+                    className: 'btn btn-success',
+                    extend: 'excel',
+                    title: 'BSW | Dashboard',
+                    filename: 'BSW | Dashboard ' 
+                },
+                {
+                    extend: 'copy',
+                    text: '<i class="far fa-clone"></i>',
+                    title: 'BSW | Dashboard',
+                    className: 'btn btn-default',
+                    exportOptions: {
+                        modifier: {
+                            page: 'current'
+                        }
+                    }
+                },
+                {
+                    text: '<i class="far fa-file-pdf"></i>',
+                    extend: 'pdfHtml5',
+                    title: 'BSW | Dashboard' ,
+                    filename: 'BSW | Dashboard',
+                    className: 'btn btn-default',
+                },
+                {
+                    text: '<i class="fas fa-print"></i>',
+                    extend: 'print',
+                    title: 'BSW | Dashboard' ,
+                    filename: 'BSW | Dashboard',
+                    className: 'btn btn-default',
+                },
+                {
+                    text: 'Ocultar Columna',
+                    extend: 'colvis',
+                    title: 'BSW | Dashboard' ,
+                    filename: 'BSW | Dashboard',
+                },
+
+                // "pdf", 
+                //"print", 
+                //"colvis"
+                ],
+            select: true,
+            ordering: true,
+
+        }
+    },
 
     getButtons: function (obj) {
         boton = '<div class="btn-group">'
-                + '<a class="btn btn-default btn-xs ver-det btn_datatable_cami" title="Editar Ots"><span class="fa fa-fw fa-eye"></span></a>'
+                + '<a class="btn btn-outline-info btn-block btn-xs btn_editar_cancha" title="Editar Cancha"><i class="fas fa-edit"></i></a>'
                 + '</div>';
         return boton;
     },
