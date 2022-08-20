@@ -47,6 +47,14 @@ class Dao_cancha_model extends CI_Model {
 
         return $query->result();   
     }
+
+    public function getCanchaByCanchaId($cancha_id){
+        $query = $this->db->select('*')
+                            ->from('cancha')
+                            ->where('cancha_id',$cancha_id)
+                        ->get();
+        return $query->row();
+    }
 	
     public function Get_or_insert_horario_cancha($datos_horario){
         $query = $this->db->select('*')

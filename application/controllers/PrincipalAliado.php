@@ -45,6 +45,32 @@ class PrincipalAliado extends CI_Controller {
 		return;
 	}
 
+	public function c_getCanchaById(){
+		try {
+			$cancha_id = $this->input->post('cancha_id');
+			$datos_cancha = $this->Dao_cancha_model->getCanchaByCanchaId($cancha_id);
+
+			$retorno = array(
+	            'data' => $datos_cancha,
+	            'message' => '',
+				'codigo' => '003',
+				'success' => true
+	        );
+
+		} catch (Exception $e) {
+			$retorno = array(
+				'message' => 'Existió un error al consultar la cancha',
+				'codigo' => '004',
+				'success' => false
+			);
+						
+		}
+
+		echo json_encode($retorno);
+		return;
+
+	}
+
 }
 
 /* End of file PrincipalAliado.php */
