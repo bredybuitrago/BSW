@@ -124,6 +124,39 @@ class Canchas extends CI_Controller {
 		echo json_encode($datos);
 	}
 
+	public function Actualizar_cancha(){
+		try {
+			$datosCancha = array();
+
+			// tratamiento para tabla de cancha
+			$datosCancha['cancha_id'] = $this->input->post('data')['cancha_id'];
+			$datosCancha['local_id'] = $this->input->post('data')['local_id'];
+			$datosCancha['tipo_cancha_id'] = $this->input->post('data')['tipo_cancha'];
+			$datosCancha['tarifa_por_hora'] = $this->input->post('data')['tarifa_por_hora'];
+			$datosCancha['estado_id'] = ($this->input->post('data')['estado_id'] == 'true')? 1 : 2;
+			$datosCancha['observacion'] = $this->input->post('data')['observacion'];
+			$datosCancha['identificacion'] = $this->input->post('data')['identificacion'];
+
+			$this->Dao_cancha_model->update_cancha($datosCancha);
+
+			$datos = array(
+				'message' => 'cancha registrada correctamente',
+				'codigo' => '003',
+				'success' => true
+			);
+			
+		} catch (Exception $e) {
+			$datos = array(
+				'message' => 'Existió un error al registrar',
+				'codigo' => '004',
+				'success' => false
+			);
+		}
+
+		echo json_encode($datos);
+	}
+
+
 	public function Reservar_cancha(){
 		$this->load->view('layout/header_inicio');
 		$this->load->view('layout/menu_inicio');

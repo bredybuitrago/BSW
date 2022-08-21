@@ -1,10 +1,17 @@
 // llenar tipo de cancha
 $.post(base_url + '/Canchas/Get_all_tipo_canchas', {},
-// función que recibe los datos
 function(data) {
     const canchas = JSON.parse(data);
     helper.set_select('ddl_tipo_cancha', canchas, {primer_opcion: 'Seleccione...'});
 });
+// LLenar locales
+$.post(base_url + '/Canchas/Get_all_local_by_empresa_session', {},
+function(data) {
+    const ddl_locales = JSON.parse(data);
+    helper.set_select('ddl_locales', ddl_locales, {primer_opcion: 'Seleccione...'});
+});
+
+
 
 $(function() {
 
@@ -18,17 +25,18 @@ $(function() {
         //Eventos de la ventana.
         events: function () {
             $('#tabla_canchas').on('click', 'a.btn_editar_cancha', principalAliado.onClickShowModalEdit);
+            $('#btn_actualizar_cancha').click(principalAliado.actualizar_cancha);
         },
 
         getCanchasAliado: function () {
             $.post(base_url + '/PrincipalAliado/c_traerCanchasAliados',
-                    {
-                        // clave: 'valor' // parametros que se envian
-                    },
-                    function (data) {
-                        const obj = JSON.parse(data);
-                        principalAliado.printTableCanchasAliado(obj.canchas);
-                    });
+            {
+                // clave: 'valor' // parametros que se envian
+            },
+            function (data) {
+                const obj = JSON.parse(data);
+                principalAliado.printTableCanchasAliado(obj.canchas);
+            });
         },
 
         printTableCanchasAliado: function (data) {
@@ -214,6 +222,7 @@ $(function() {
 
 
         limpiarFormulario: function(){
+           $('#ddl_locales').val('');
             $('#title_modal').html('');
             $('#txt_identificacion').val('');
             $('#ddl_tipo_cancha').val('');
@@ -246,18 +255,62 @@ $(function() {
 
         fillFormModal: function(registro){
             console.log(registro)
-
+            $('#ddl_locales').val(registro.local_id);
             $('#txt_identificacion').val(registro.identificacion);
             $('#ddl_tipo_cancha').val(registro.tipo_cancha_id);
             $('#txt_tarifa_por_hora').val(registro.tarifa_por_hora);
             $('#txt_observaciones').val(registro.observacion);
+            $('#hide_cancha_id').val(registro.cancha_id);
 
-            if (registro.estado_id == 1) {
-                $('cancha_activa').prop('checked', true);
+            if (registro.estado_id == "1") {
+                $('#cancha_activa').attr('checked', true);
             } else {
-                $('cancha_activa').prop('checked', false);
+                $('#cancha_activa').attr('checked', false);
             }
-        }
+        },
+
+        actualizar_cancha: function(){
+            let flag = true;
+            if(!helper.validarFormulario("form_register_cancha")){
+              helper.miniAlert('Completa los campos obligatorios', 'error');
+              flag = false;
+              return;
+            }
+
+
+            // Enviar formulario
+            if (flag) {
+                const data = {
+                    cancha_id: $('#hide_cancha_id').val(),
+                    local_id: $('#ddl_locales').val(),
+                    identificacion: $("#txt_identificacion").val(),
+                    tipo_cancha: $("#ddl_tipo_cancha").val(),
+                    tarifa_por_hora: $("#txt_tarifa_por_hora").val(),
+                    observacion: $("#txt_observaciones").val(),
+                    estado_id: $("#cancha_activa").prop('checked')
+                }
+
+
+                $.post(base_url + '/Canchas/Actualizar_cancha', {
+                    data:  data
+                },
+
+                // función que recibe los datos
+                function(data) {
+                    const obj = JSON.parse(data);
+                    if (obj.success) {
+                        helper.alert_refresh('OK!', obj.message, 'success')
+                    } else {
+                    helper.alert('Error!', obj.message, 'error');
+                    }
+
+                });
+            }
+
+
+
+
+        },
 
 
     };

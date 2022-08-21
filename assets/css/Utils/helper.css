@@ -47,3 +47,8 @@
 .m-top-10{
 	margin-top: 10px;
 }
+
+.slow-spin {
+  -webkit-animation: fa-spin 6s infinite linear;
+  animation: fa-spin 6s infinite linear;
+}

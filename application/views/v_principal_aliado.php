@@ -39,6 +39,17 @@
                     <div class="card-body" id="form_register_cancha">
                         <div class="row">
                             <div class="col-md-6">
+                                <label>local</label>
+                                <div class="form-group input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-thumbtack"></i></span>
+                                    </div>
+                                    <select class="form-control required" id="ddl_locales"></select>                        
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
                                 <label>Identificación de la cancha</label>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -47,6 +58,8 @@
                                     <input type="text" class="form-control required" id="txt_identificacion" placeholder="Ejemplo... primera, central, fondo">
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <label>Tipo de cancha</label>
                                 <div class="form-group input-group mb-3">
@@ -56,8 +69,7 @@
                                     <select class="form-control required" id="ddl_tipo_cancha"></select>                        
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
+
                             <div class="col-md-6">
                                 <label>Tarifa por hora</label>
                                 <div class="input-group mb-3">
@@ -67,20 +79,15 @@
                                     <input type="text" class="form-control required" id="txt_tarifa_por_hora" placeholder="Tarifa por hora">
                                 </div>
                             </div>
+
+                        </div>
+
+                        <div class="row">
                             <div class="col-md-6">
                                 <!-- textarea -->
                                 <div class="form-group">
                                     <label>Observaciones</label>
                                     <textarea class="form-control" id="txt_observaciones" rows="3"></textarea>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label></label>
-                                    <button class="btn btn-success" id="btn_guardar_cancha">Guardar cancha <i class="fas fa-save"></i></button>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -89,6 +96,8 @@
                                     <label for="cancha_activa" class="custom-control-label">Cancha activa</label>
                                 </div>
                             </div>
+                            <input type="hidden" name="hide_cancha_id" id="hide_cancha_id">
+
                         </div>
                     </div>
                     <!-- /.card-body -->
@@ -98,8 +107,8 @@
 
             </div>
             <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" id="btn_actualizar_cancha">Guardar Cambios &nbsp;&nbsp;<i class="fas fa-paper-plane fa-fw fa-xl margin-left-lg fa-spin slow-spin"></i></button>
             </div>
         </div>
     </div>

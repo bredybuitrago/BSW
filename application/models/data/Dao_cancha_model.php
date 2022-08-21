@@ -25,6 +25,8 @@ class Dao_cancha_model extends CI_Model {
          $query = $this->db->query("
             SELECT 
                 c.cancha_id,
+                l.local_id,
+                e.empresa_id,
                 e.nombre_empresa AS empresa,
                 l.nombre_local AS local,
                 l.direccion,
@@ -119,9 +121,12 @@ class Dao_cancha_model extends CI_Model {
         $this->db->insert('cancha', $datos_cancha);
         return $this->db->insert_id();
     }
+
+    public function update_cancha($datos_cancha){
+        $this->db->where('cancha_id', $datos_cancha['cancha_id']);
+        $this->db->update('cancha', $datos_cancha);
+    }
 	
 
 }
 
-/* End of file dao_cancha_model.php */
-/* Location: ./application/models/dao_cancha_model.php */
