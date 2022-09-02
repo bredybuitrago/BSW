@@ -152,19 +152,26 @@ $(function () {
 			} else {
 				// llenar el formulario del local
 
-				const data = {
-					local_id: id_local					
+				if (id_local == null) {
+					console.log("no hacer nada")
+				} else {
+
+					const data = {
+						local_id: id_local					
+					}
+
+
+					$.post(base_url + '/Canchas/Get_local_by_local_id', {
+						data:  data
+					},
+					// función que recibe los datos
+					function(data) {
+						const obj = JSON.parse(data);
+						registrar_servicio.set_formulario_local(obj);
+						registrar_servicio.lock_formulario_local();
+					});
 				}
 
-				$.post(base_url + '/Canchas/Get_local_by_local_id', {
-					data:  data
-				},
-				// función que recibe los datos
-				function(data) {
-					const obj = JSON.parse(data);
-					registrar_servicio.set_formulario_local(obj);
-					registrar_servicio.lock_formulario_local();
-				});
 			}
 
 

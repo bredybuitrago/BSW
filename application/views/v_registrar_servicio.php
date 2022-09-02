@@ -323,9 +323,9 @@
 			<div class="col-md-12">
 				<div class="card card-info">
 					<div class="card-header">
-						<h3 class="card-title">Subir Fotos de la cancha<small><em></em></small></h3>
+						<h3 class="card-title">Subir Fotos de la canchas<small><em></em></small></h3>
 					</div>
-					<div class="card-body">
+					<div class="card-body" id="myDrop_Canchas">
 						<div id="actions" class="row">
 							<div class="col-lg-6">
 								<div class="btn-group w-100">
@@ -391,6 +391,13 @@
 				<!-- /.card -->
 			</div>
 		</div>
+
+
+		<div class='content'>
+			<!-- Dropzone -->
+		   	<form action="<?= base_url('Gestor/recibirArchivos') ?>" class="dropzone" id='fileupload'>
+		   	</form> 
+		</div> 
 
 	</div>
 	<!-- /.col (right) -->
