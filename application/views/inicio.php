@@ -94,12 +94,13 @@
         <div class="row">
           <div class="col-xl-9 col-lg-9 col-sm-12 col-xs-12 shop-content-right">
             <div class="right-product-box">
+
               <div class="product-item-filter row">
                 <div class="col-12 col-sm-8 text-center text-sm-left">
                   <div class="toolbar-sorter-right">
                     <span>Odenar por </span>
-                    <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
-                      <option data-display="Select">Calificaciones</option>
+                    <select id="ddl_order_by" class="selectpicker show-tick form-control" data-placeholder="$COL">
+                      <option value="0">Calificaciones</option>
                       <option value="1">Popularidad</option>
                       <option value="2">Alto precio → Bajo precio</option>
                       <option value="3">Bajo precio → Alto precio</option>
@@ -122,8 +123,11 @@
 
               <div class="product-categorie-box">
                 <div class="tab-content">
+
+                  <!-- CANCHAS EN CUADRICULA -->
                   <div role="tabpanel" class="tab-pane fade show active" id="grid-view">
                     <div class="row">
+
                       <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                         <div class="products-single fix">
                           <div class="box-img-hover">
@@ -146,6 +150,7 @@
                           </div>
                         </div>
                       </div>
+
                       <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                         <div class="products-single fix">
                           <div class="box-img-hover">
@@ -168,6 +173,7 @@
                           </div>
                         </div>
                       </div>
+
                       <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                         <div class="products-single fix">
                           <div class="box-img-hover">
@@ -190,6 +196,7 @@
                           </div>
                         </div>
                       </div>
+
                       <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                         <div class="products-single fix">
                           <div class="box-img-hover">
@@ -212,6 +219,7 @@
                           </div>
                         </div>
                       </div>
+
                       <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                         <div class="products-single fix">
                           <div class="box-img-hover">
@@ -234,6 +242,7 @@
                           </div>
                         </div>
                       </div>
+
                       <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                         <div class="products-single fix">
                           <div class="box-img-hover">
@@ -256,6 +265,7 @@
                           </div>
                         </div>
                       </div>
+
                       <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                         <div class="products-single fix">
                           <div class="box-img-hover">
@@ -278,6 +288,7 @@
                           </div>
                         </div>
                       </div>
+
                       <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                         <div class="products-single fix">
                           <div class="box-img-hover">
@@ -300,6 +311,7 @@
                           </div>
                         </div>
                       </div>
+
                       <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                         <div class="products-single fix">
                           <div class="box-img-hover">
@@ -322,8 +334,12 @@
                           </div>
                         </div>
                       </div>
+                      
                     </div>
                   </div>
+
+
+                  <!-- CANCHAS EN LISTA -->
                   <div role="tabpanel" class="tab-pane fade" id="list-view">
                     <div class="list-view-box">
                       <div class="row">
@@ -424,6 +440,7 @@
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
           <div class="col-xl-3 col-lg-3 col-sm-12 col-xs-12 sidebar-shop-left">

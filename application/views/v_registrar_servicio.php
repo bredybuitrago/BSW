@@ -30,7 +30,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-thumbtack"></i></span>
 								</div>
-								<select class="form-control is-valid" id="ddl_select_local"></select>
+								<select class="form-control is-valid form-control-sm" id="ddl_select_local form-control-sm"></select>
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -39,7 +39,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-building"></i></span>
 								</div>
-								<input type="text" class="form-control required" id="txt_nombre_local">
+								<input type="text" class="form-control required form-control-sm" id="txt_nombre_local">
 							</div>
 						</div>
 					</div>					
@@ -94,8 +94,8 @@
 										<div class="input-group-prepend">
 											<span class="input-group-text"><i class="fas fa-clock"></i></i></span>
 										</div>
-										<select class="form-control required" id="ddl_hora_inicio">
-											<option value="">Hora inicio servicio</option>
+										<select class="form-control required form-control-sm" id="ddl_hora_inicio">
+											<option value="">...</option>
 											<option value="1:00">1:00</option>
 											<option value="2:00">2:00</option>
 											<option value="3:00">3:00</option>
@@ -117,7 +117,7 @@
 										<div class="input-group-prepend">
 											<span class="input-group-text"><i class="fas fa-clock"></i></i></span>
 										</div>
-										<select class="form-control" id="ddl_franja_inicio">
+										<select class="form-control form-control-sm" id="ddl_franja_inicio">
 											<option>pm</option>
 											<option>am</option>
 										</select>						
@@ -132,8 +132,8 @@
 										<div class="input-group-prepend">
 											<span class="input-group-text"><i class="fas fa-clock"></i></i></span>
 										</div>
-										<select class="form-control required" id="ddl_hora_fin">
-											<option value="">Hora fin servicio</option>
+										<select class="form-control required form-control-sm" id="ddl_hora_fin">
+											<option value="">...</option>
 											<option value="1:00">1:00</option>
 											<option value="2:00">2:00</option>
 											<option value="3:00">3:00</option>
@@ -155,7 +155,7 @@
 										<div class="input-group-prepend">
 											<span class="input-group-text"><i class="fas fa-clock"></i></i></span>
 										</div>
-										<select class="form-control" id="ddl_franja_fin">
+										<select class="form-control form-control-sm" id="ddl_franja_fin">
 											<option>pm</option>
 											<option>am</option>
 										</select>						
@@ -174,7 +174,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-futbol"></i></span>
 								</div>
-								<input type="number" class="form-control required" id="txt_cantidad_canchas">
+								<input type="number" class="form-control required form-control-sm" id="txt_cantidad_canchas">
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -183,7 +183,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-house-damage"></i></span>
 								</div>
-								<select class="form-control required" id="ddl_barrio"></select>						
+								<select class="form-control required form-control-sm" id="ddl_barrio"></select>						
 							</div>
 						</div>
 					</div>
@@ -196,7 +196,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
 								</div>
-								<input type="text" class="form-control required" id="txt_direccion">
+								<input type="text" class="form-control required form-control-sm" id="txt_direccion">
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -205,7 +205,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-id-badge"></i></span>
 								</div>
-								<input type="text" class="form-control required" id="txt_nombre_administrador_del_local">
+								<input type="text" class="form-control required form-control-sm" id="txt_nombre_administrador_del_local">
 							</div>
 						</div>
 					</div>
@@ -217,7 +217,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-phone"></i></span>
 								</div>
-								<input type="text" class="form-control" id="txt_telefono_administracion">
+								<input type="text" class="form-control form-control-sm " id="txt_telefono_administracion">
 							</div>
 						</div>
 
@@ -227,7 +227,7 @@
 								<div class="input-group-prepend">
 									<span class="input-group-text"><i class="fas fa-envelope"></i></span>
 								</div>
-								<input type="email" class="form-control" id="txt_correo_local">
+								<input type="email" class="form-control form-control-sm" id="txt_correo_local">
 								<input type="hidden" id="txt_coordenadas_lat">
 								<input type="hidden" id="txt_coordenadas_lng">
 							</div>

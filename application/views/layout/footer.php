@@ -91,6 +91,9 @@
     <script src="<?php echo base_url(); ?>assets/commerce/js/form-validator.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/commerce/js/contact-form-script.js"></script>
     <script src="<?php echo base_url(); ?>assets/commerce/js/custom.js"></script>
+    <!-- controlador de canchas -->
+    <script src="<?php echo base_url(); ?>assets/js/display_canchas.js"></script>
+
 
 
 <?php endif ?>

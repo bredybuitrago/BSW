@@ -18,6 +18,13 @@ class Canchas extends CI_Controller {
 		echo json_encode($canchas);
 	}
 
+	public function Get_all_canchas_activas(){
+
+		$order_by = $this->input->post('order_by');
+		$canchas = $this->Dao_cancha_model->Get_all_canchas_activas($order_by);
+		echo json_encode($canchas);
+	}
+
 	public function Get_all_tipo_canchas(){
 		$tipo_canchas = $this->Dao_cancha_model->Get_all_tipo_canchas();
 		echo json_encode($tipo_canchas);

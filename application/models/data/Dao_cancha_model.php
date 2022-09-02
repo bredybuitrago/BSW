@@ -12,6 +12,23 @@ class Dao_cancha_model extends CI_Model {
         return $query->result();
     }
 
+    public function Get_all_canchas_activas($order_by){
+        $query = $this->db->query("
+            SELECT 
+                l.nombre_local,
+                c.*,
+                tc.tipo_cancha
+            FROM 
+                local l
+                INNER JOIN cancha c ON c.local_id = l.local_id
+                INNER JOIN tipo_cancha tc ON tc.tipo_cancha_id = c.tipo_cancha_id
+            WHERE 
+                c.estado_id = 1;
+        ");
+
+        return $query->result();
+    }
+
     public function Get_all_tipo_canchas(){
         $query = $this->db->select('tipo_cancha_id, tipo_cancha')
                             ->from('tipo_cancha')

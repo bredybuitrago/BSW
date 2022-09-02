@@ -52,3 +52,7 @@
   -webkit-animation: fa-spin 6s infinite linear;
   animation: fa-spin 6s infinite linear;
 }
+
+.card-body label{
+	font-size: 13px;
+}
