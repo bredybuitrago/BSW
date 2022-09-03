@@ -23,7 +23,9 @@ class Gestor extends CI_Controller {
 			$config['file_name'] = $_FILES['file']['name'];
 					
 			//Load upload library
-			$this->load->library('upload',$config);			
+			$this->load->library('upload',$config);		
+
+			print_r("hola inmundo");	
 				
 			// File upload
 			if($this->upload->do_upload('file')){
