@@ -14,34 +14,55 @@ class Gestor extends CI_Controller {
 	}
 
 	public function recibirArchivos(){
-		if(!empty($_FILES['file']['name'])){
-				
-			// Set preference
-			$config['upload_path'] = 'uploads/';	
-			$config['allowed_types'] = 'jpg|jpeg|png|gif';
-			$config['max_size']    = '100'; // max_size in kb
-			$config['file_name'] = $_FILES['file']['name'];
-					
-			//Load upload library
-			$this->load->library('upload',$config);		
+		print_r( $this->input->post('hiden_local_id'));
+		echo "<pre>";
+		print_r($_FILES['uploadedFile']);
+		echo "</pre>";
 
-			print_r("hola inmundo");	
-				
-			// File upload
-			if($this->upload->do_upload('file')){
-				// Get data about the file
-				$uploadData = $this->upload->data();
+
+		$data = array();
+        if($this->input->post('hiden_local_id') && !empty($_FILES['uploadedFile']['name'])){
+
+
+        	//Validar si existe la carpeta con el id
+        	$path = "uploads/" . $this->input->post('hiden_local_id');
+
+			if (!file_exists($path)) {
+			    mkdir($path, 0777, true);
 			}
-		}
 
+            $filesCount = count($_FILES['uploadedFile']['name']);
 
+            for($i = 0; $i < $filesCount; $i++){
 
+				// // get details of the uploaded file
+				$fileTmpPath = $_FILES['uploadedFile']['tmp_name'][$i];
+				$fileName = $_FILES['uploadedFile']['name'][$i];
+				$fileSize = $_FILES['uploadedFile']['size'][$i];
+				$fileType = $_FILES['uploadedFile']['type'][$i];
+				$fileNameCmps = explode(".", $fileName);
+				$fileExtension = strtolower(end($fileNameCmps));
 
+		        $newFileName = str_replace(" ", "", $fileName); 
+		        $newFileName =  time() . "_" . $newFileName; 
 
+				// directory in which the uploaded file will be moved
+				$uploadFileDir = $path . '/';
+				$dest_path = $uploadFileDir . $newFileName;
+				 
+				if(move_uploaded_file($fileTmpPath, $dest_path))
+				{
+				  echo 'File is successfully uploaded.';
+				}
+				else
+				{
+				  echo 'There was some error moving the file to upload directory. Please make sure the upload directory is writable by web server.';
+				}
+               
 
+            }
+        }
 
 	}
-
-	
 
 }

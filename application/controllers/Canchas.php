@@ -13,7 +13,7 @@ class Canchas extends CI_Controller {
 		
 	}
 
-	public function Get_all_canchas(){
+	public function Get_all_barrios(){
 		$canchas = $this->Dao_cancha_model->getAllBarrios();
 		echo json_encode($canchas);
 	}
@@ -31,6 +31,7 @@ class Canchas extends CI_Controller {
 	}
 
 	public function Get_all_local_by_empresa_session(){
+
 		$locales = $this->Dao_cancha_model->GetDdlLocalsByEmpresaId($this->session->empresa_id);
 		echo json_encode($locales);
 	}

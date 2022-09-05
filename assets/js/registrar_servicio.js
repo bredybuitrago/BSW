@@ -3,8 +3,6 @@ $(function () {
 		init: function () {
 			registrar_servicio.events();
 			registrar_servicio.llenar_selects();
-
-
 		},
 
 		//Eventos de la ventana.
@@ -12,16 +10,32 @@ $(function () {
 			$("#btn_guardar_local").click(registrar_servicio.registrar_local);
 			$("#btn_guardar_cancha").click(registrar_servicio.registrar_cancha);
 			$("#ddl_select_local").change(registrar_servicio.llenar_formulario_local);
+			$('#uploadBtn').click(registrar_servicio.validar_formulario_fotos);
+		},
+
+		validar_formulario_fotos: function(){
+			const local_id = $("#ddl_select_local").val();
+			if (local_id == 0) {
+        		helper.alert('Atención', 'debes seleccionar o crear un local', 'warning');
+        		$('#ddl_select_local').addClass('is-invalid');
+        		return;
+        	}
+
+        	if($('.upload__img-box').length == 0){
+        		helper.alert('Atención', 'debes seleccionar imágenes para cargarlas, da click al botón seleccionar imágenes', 'warning');
+        		return;
+        	}
+
+			$("#images_form").submit();
 		},
 
 		llenar_selects: function(){
 			// llenar barrio
-			$.post(base_url + '/Canchas/Get_all_canchas', {},
+			$.post(base_url + '/Canchas/Get_all_barrios', {},
 			// función que recibe los datos
 			function(data) {
 				const canchas = JSON.parse(data);
 				helper.set_select('ddl_barrio', canchas, {primer_opcion: 'Seleccione...'});
-				registrar_servicio.llenar_formulario_local();
 			});
 
 			// llenar tipo de cancha
@@ -30,7 +44,6 @@ $(function () {
 			function(data) {
 				const canchas = JSON.parse(data);
 				helper.set_select('ddl_tipo_cancha', canchas, {primer_opcion: 'Seleccione...'});
-				registrar_servicio.llenar_formulario_local();
 			});
 
 			// llenar ddl local
@@ -38,6 +51,7 @@ $(function () {
 			// función que recibe los datos
 			function(data) {
 				const locales = JSON.parse(data);
+
 				helper.set_select('ddl_select_local', locales);
 
 				$('#ddl_select_local').append('<option value="0">Crear Nuevo Local</option>');
@@ -145,6 +159,9 @@ $(function () {
 
 		llenar_formulario_local: function () {
 			const id_local = $("#ddl_select_local").val();
+
+			// Input para enviar el id local para guardar las imágenes
+			$('#hiden_local_id').val(id_local);
 
 			if (id_local == 0) {
 				registrar_servicio.reset_formulario_local();
