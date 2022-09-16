@@ -434,6 +434,9 @@
 							</div>
 					  	</form>
 
+
+					  	<?php echo $this->session->flashdata('response'); ?>
+
 					</div>
 				</div>
 			</div>
@@ -441,3 +444,12 @@
 
 	</div>
 </div>
+
+<script src="<?php echo base_url(); ?>assets/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+<script type="text/javascript">
+	const message = "<?php echo $this->session->flashdata('response'); ?>";
+
+	if(message != '')
+		Swal.fire('Arención',	message,'info');
+
+</script>

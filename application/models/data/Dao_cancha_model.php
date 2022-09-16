@@ -29,6 +29,39 @@ class Dao_cancha_model extends CI_Model {
         return $query->result();
     }
 
+    public function Get_all_locales_activos($order_by){
+        $query = $this->db->query("
+            SELECT 
+                DISTINCT
+                l.local_id,
+                l.nombre_local,
+                (SELECT COUNT(*) FROM cancha WHERE local_id = l.local_id AND estado_id = 1) AS numero_canchas,
+                b.barrio,
+                h.hora_inicio,
+                h.hora_fin,
+                fotosLocal.ruta
+            FROM LOCAL l
+                INNER JOIN cancha c ON l.local_id = c.local_id 
+                INNER JOIN (
+                    SELECT fl.fotos_local_id, fl.local_id, fl.ruta, MIN(fl.fotos_local_id) AS fotosLocalId
+                    FROM fotos_local fl 
+                    WHERE estado_id = 1
+                    GROUP BY local_id
+                ) AS fotosLocal ON fotosLocal.local_id = l.local_id
+                INNER JOIN barrio b ON b.barrio_id = l.barrio_id
+                INNER JOIN horario h ON h.horario_id = l.horario_id
+            WHERE l.estado_id = 1
+            AND c.estado_id = 1;
+        ");
+
+        return $query->result();
+    }
+
+
+
+
+
+
     public function Get_all_tipo_canchas(){
         $query = $this->db->select('tipo_cancha_id, tipo_cancha')
                             ->from('tipo_cancha')

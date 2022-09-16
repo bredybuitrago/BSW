@@ -6,6 +6,7 @@ class Gestor extends CI_Controller {
 	public function __construct() {
         parent::__construct();
         $this->load->model('data/Dao_cancha_model');
+        $this->load->model('data/Dao_fotos_local_model');
         $this->load->helper('url');
     }
 
@@ -14,15 +15,10 @@ class Gestor extends CI_Controller {
 	}
 
 	public function recibirArchivos(){
-		print_r( $this->input->post('hiden_local_id'));
-		echo "<pre>";
-		print_r($_FILES['uploadedFile']);
-		echo "</pre>";
-
 
 		$data = array();
         if($this->input->post('hiden_local_id') && !empty($_FILES['uploadedFile']['name'])){
-
+			$flujo_correcto = true;
 
         	//Validar si existe la carpeta con el id
         	$path = "uploads/" . $this->input->post('hiden_local_id');
@@ -52,16 +48,28 @@ class Gestor extends CI_Controller {
 				 
 				if(move_uploaded_file($fileTmpPath, $dest_path))
 				{
-				  echo 'File is successfully uploaded.';
+				  	$datosFotos['local_id'] = $this->input->post('hiden_local_id');
+					$datosFotos['ruta'] = $dest_path;
+					$datosFotos['estado_id'] = 1;
+
+					$this->Dao_fotos_local_model->insert_foto_local($datosFotos);
+
 				}
 				else
 				{
-				  echo 'There was some error moving the file to upload directory. Please make sure the upload directory is writable by web server.';
+					$flujo_correcto = false;
 				}
                
+            }
 
+            if ($flujo_correcto) {
+            	$this->session->set_flashdata('response', 'Imágenes guardadas correctamente');
+            } else {
+            	$this->session->set_flashdata('response', 'Existió un error al guardar la imágenes');
             }
         }
+
+        redirect("RegistrarServicio");
 
 	}
 

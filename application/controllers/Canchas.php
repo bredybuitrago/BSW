@@ -19,10 +19,15 @@ class Canchas extends CI_Controller {
 	}
 
 	public function Get_all_canchas_activas(){
-
 		$order_by = $this->input->post('order_by');
 		$canchas = $this->Dao_cancha_model->Get_all_canchas_activas($order_by);
 		echo json_encode($canchas);
+	}
+
+	public function Get_all_locales_activos(){
+		$order_by = $this->input->post('order_by');
+		$locales = $this->Dao_cancha_model->Get_all_locales_activos($order_by);
+		echo json_encode($locales);	
 	}
 
 	public function Get_all_tipo_canchas(){
@@ -66,7 +71,6 @@ class Canchas extends CI_Controller {
 			$datosHorario['hora_fin'] = $this->input->post('data')['hora_fin'];
 
 			$id_horario = $this->Dao_cancha_model->Get_or_insert_horario_cancha($datosHorario);
-
 
 			// tratamiento para tabla cancha
 			$datosLocal['empresa_id'] = $this->session->empresa_id;
