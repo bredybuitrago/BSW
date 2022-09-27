@@ -317,6 +317,18 @@
 					</div>
 
 					<div class="row">
+						<div class="col-md-12">
+							<label>Descripción de tu local</label>
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text"><i class="fas fa-quote-left"></i></span>
+								</div>
+								<textarea id="txt_descripcion_local" class="form-control" rows="3" placeholder="Esto lo leerá el usuario" maxlength="255"></textarea>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
 						<div class="col-sm-12">
 							<label>Indique en el mapa el punto donde está ubicado el local</label>
 							<div id="map" style="  top:0; bottom:0; width:100%; min-height: 500px;"></div>

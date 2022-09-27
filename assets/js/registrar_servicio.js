@@ -94,6 +94,7 @@ $(function () {
 					direccion: $("#txt_direccion").val(),
 					coordenadas_lat: $("#txt_coordenadas_lat").val(),
 					coordenadas_lon: $("#txt_coordenadas_lng").val(),
+					descripcion_local: $('#txt_descripcion_local').val()
 				}
 
 				$.post(base_url + '/Canchas/Register_local', {

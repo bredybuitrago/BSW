@@ -39,7 +39,8 @@ class Dao_cancha_model extends CI_Model {
                 b.barrio,
                 h.hora_inicio,
                 h.hora_fin,
-                fotosLocal.ruta
+                fotosLocal.ruta,
+                l.descripcion
             FROM LOCAL l
                 INNER JOIN cancha c ON l.local_id = c.local_id 
                 INNER JOIN (

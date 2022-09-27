@@ -85,6 +85,7 @@ class Canchas extends CI_Controller {
 			$datosLocal['estado_id'] = 1;
 			$datosLocal['cordenadas_lat'] = $this->input->post('data')['coordenadas_lat'];
 			$datosLocal['cordenadas_lon'] = $this->input->post('data')['coordenadas_lon'];
+			$datosLocal['descripcion'] = $this->input->post('data')['descripcion_local'];
 
 			$this->Dao_cancha_model->insert_local($datosLocal);
 
