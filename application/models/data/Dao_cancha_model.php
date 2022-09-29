@@ -161,6 +161,31 @@ class Dao_cancha_model extends CI_Model {
 
         return $query->row();
     }
+
+    public function GetBarriosLocales(){
+        $query = $this->db->query("
+            SELECT 
+                b.barrio_id, b.barrio, count(b.barrio_id) AS cantidad
+            FROM barrio b
+            INNER JOIN local l ON l.barrio_id = b.barrio_id
+            WHERE l.estado_id = 1
+            GROUP BY b.barrio_id
+            ORDER BY 2
+            ;
+        ");
+
+        return $query->result(); 
+    }
+
+    public function GetLocalesByBarrioId($barrio_id){
+        $query = $this->db->select('local_id, nombre_local, direccion')
+                            ->from('local')
+                            ->where('barrio_id',$barrio_id)
+                            ->order_by('nombre_local')
+                        ->get();
+
+        return $query->result();
+    }
     
 
     public function insert_local($datos_local){
