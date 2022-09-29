@@ -293,3 +293,6 @@
 
     </div>
   </div>
+<script type="text/javascript">
+  const local_id = <?php echo $local_id; ?>;
+</script>

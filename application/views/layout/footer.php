@@ -134,6 +134,9 @@
     <script src="<?php echo base_url(); ?>assets/js/principal_aliado.js"></script>
 <?php endif ?>
 
+<?php if ($this->uri->segment(1) == 'Canchas' && $this->uri->segment(2) == 'Reservar_cancha'): ?>
+    <script src="<?php echo base_url(); ?>assets/js/reservar_cancha.js"></script>
+<?php endif ?>
 
 
 </body>

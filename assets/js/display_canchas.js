@@ -18,7 +18,7 @@ $(function () {
             },
             function (data) {
                 const obj = JSON.parse(data);
-                console.log(obj)
+                
                 display.printTableCanchasDisponibles(obj);
                 display.printTableCanchasDisponiblesList(obj);
             });
@@ -40,7 +40,7 @@ $(function () {
 					            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Comparar"><i class="fas fa-sync-alt"></i></a></li>
 					            <li><a href="#" data-toggle="tooltip" data-placement="right" title="Me gusta"><i class="far fa-heart"></i></a></li>
 					          </ul>
-					          <a class="cart" href="${base_url}/Canchas/Reservar_cancha">Reservar</a>
+					          <a class="cart" href="${base_url}Canchas/Reservar_cancha/${cancha.local_id}">Reservar</a>
 					        </div>
 					      </div>
 					      <div class="why-text">
@@ -83,7 +83,7 @@ $(function () {
                             <h4>${cancha.nombre_local}</h4>
                             <h5> ${cancha.numero_canchas}</h5>
                             <p>${cancha.descripcion}</p>
-                            <a class="btn hvr-hover" href="${base_url}/Canchas/Reservar_cancha">Reservar</a>
+                            <a class="btn hvr-hover" href="${base_url}Canchas/Reservar_cancha/${cancha.local_id}">Reservar</a>
                           </div>
                         </div>
                       </div>

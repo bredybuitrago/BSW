@@ -170,13 +170,20 @@ class Canchas extends CI_Controller {
 	}
 
 
-	public function Reservar_cancha(){
+	public function Reservar_cancha($local_id){
+
+		$data['local_id'] = $local_id;
+
 		$this->load->view('layout/header_inicio');
 		$this->load->view('layout/menu_inicio');
-		$this->load->view('v_reservar_cancha');
+		$this->load->view('v_reservar_cancha', $data);
 		$this->load->view('layout/footer');
 			
 		
+	}
+
+	public function Get_data_local(){
+		$local_id = $this->input->post('local_id');	
 	}
 
 }
