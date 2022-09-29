@@ -179,6 +179,17 @@ class Canchas extends CI_Controller {
 		
 	}
 
+	public function Get_barrios_locales(){
+		$barrios_locales = $this->Dao_cancha_model->GetBarriosLocales();
+		if ($barrios_locales) {
+			foreach ($barrios_locales as $indice => $barrio) {
+				$barrios_locales[$indice]->data = $this->Dao_cancha_model->GetLocalesByBarrioId($barrio->barrio_id);
+			}
+		}
+
+		echo json_encode($barrios_locales);
+	}
+
 }
 
 /* End of file canchas.php */

@@ -2,6 +2,7 @@ $(function () {
 	display = {
 		init: function () {
 			display.getLocales();
+			display.getBarriosCanchas();
 			display.events();
 		},
 
@@ -18,7 +19,6 @@ $(function () {
             },
             function (data) {
                 const obj = JSON.parse(data);
-                console.log(obj)
                 display.printTableCanchasDisponibles(obj);
                 display.printTableCanchasDisponiblesList(obj);
             });
@@ -81,7 +81,7 @@ $(function () {
                         <div class="col-sm-6 col-md-6 col-lg-8 col-xl-8">
                           <div class="why-text full-width">
                             <h4>${cancha.nombre_local}</h4>
-                            <h5> ${cancha.numero_canchas}</h5>
+                            <h5>${cancha.numero_canchas} Canchas</h5>
                             <p>${cancha.descripcion}</p>
                             <a class="btn hvr-hover" href="${base_url}/Canchas/Reservar_cancha">Reservar</a>
                           </div>
@@ -89,7 +89,50 @@ $(function () {
                       </div>
                     </div>`)
 		    });
+		},
+
+		getBarriosCanchas: function (){
+			$.post(base_url + '/Canchas/Get_barrios_locales',
+      {
+      },
+      function (data) {
+          const obj = JSON.parse(data);
+          console.log(obj)
+          display.printFilterBarrios(obj);
+          // display.printTableCanchasDisponiblesList(obj);
+      });
+		},
+
+		printFilterBarrios: function(barrios){
+			let info_local = '';
+			let expandido = '';
+			let show = '';
+
+
+			barrios.forEach(function(data, indice) {
+				info_local = ''
+				
+				//Recorer las locales de cada barrio para mostrar las locales
+				data.data.forEach(function(local, indice_local){
+					info_local += `<a href="#" class="list-group-item list-group-item-action">${local.nombre_local} <small class="text-muted">(${local.direccion})</small> </a>`;
+				})
+
+				expandido = (indice == 0)? "true" : "false";
+				show = (indice == 0)? "show" : "";
+				$('#list-group-men').append(
+					`
+						<div class="list-group-collapse sub-men">
+              <a class="list-group-item list-group-item-action" href="#sub-men${indice}" data-toggle="collapse" aria-expanded="${expandido}" aria-controls="sub-men${indice}">${data.barrio} <small class="text-muted">(${data.cantidad})</small> <i class="far fa-futbol float-right text-success"></i></a>
+              <div class="collapse ${show}" id="sub-men${indice}" data-parent="#list-group-men">
+                <div class="list-group">
+                  ${info_local}
+                </div>
+              </div>
+            </div>
+					`)
+		    });
 		}
+
 	}
 	display.init();
 });

@@ -152,34 +152,7 @@
                   <h3>Barrios</h3>
                 </div>
                 <div class="list-group list-group-collapse list-group-sm list-group-tree" id="list-group-men" data-children=".sub-men">
-                  <div class="list-group-collapse sub-men">
-                    <a class="list-group-item list-group-item-action" href="#sub-men1" data-toggle="collapse" aria-expanded="true" aria-controls="sub-men1">Puente Aranda <small class="text-muted">(5)</small>
-                    </a>
-                    <div class="collapse show" id="sub-men1" data-parent="#list-group-men">
-                      <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action active">Cancheritos <small class="text-muted">($50.000)</small></a>
-                        <a href="#" class="list-group-item list-group-item-action">Champions Bogotá <small class="text-muted">($60.000)</small></a>
-                        <a href="#" class="list-group-item list-group-item-action">Amigos club <small class="text-muted">($60.000)</small></a>
-                        <a href="#" class="list-group-item list-group-item-action">Lideres <small class="text-muted">($65.000)</small></a>
-                        <a href="#" class="list-group-item list-group-item-action">Zona B <small class="text-muted">($70.000)</small></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="list-group-collapse sub-men">
-                    <a class="list-group-item list-group-item-action" href="#sub-men2" data-toggle="collapse" aria-expanded="false" aria-controls="sub-men2">Bochica 
-                      <small class="text-muted">(3)</small>
-                    </a>
-                    <div class="collapse" id="sub-men2" data-parent="#list-group-men">
-                      <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action">Capellanías <small class="text-muted">($50.000)</small></a>
-                        <a href="#" class="list-group-item list-group-item-action">Futboleros <small class="text-muted">($60.000)</small></a>
-                        <a href="#" class="list-group-item list-group-item-action">Cancharitos Bochica <small class="text-muted">($70.000)</small></a>
-                      </div>
-                    </div>
-                  </div>
-                  <a href="#" class="list-group-item list-group-item-action"> Muzú  <small class="text-muted">(1) </small></a>
-                  <a href="#" class="list-group-item list-group-item-action"> Santa Rita <small class="text-muted">(2)</small></a>
-                  <a href="#" class="list-group-item list-group-item-action"> Industrial Centenario <small class="text-muted">(3)</small></a>
+             
                 </div>
               </div>
               <div class="filter-price-left">
@@ -202,7 +175,6 @@
   </div>
 </div>
 
-<!-- End Shop Page -->
 
 
 
