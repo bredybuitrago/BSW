@@ -56,3 +56,11 @@
 .card-body label{
 	font-size: 13px;
 }
+
+.carousel-item img{
+	max-height: 540pt;
+}
+
+.carousel-indicators li img {
+	max-height: 125pt;
+}
