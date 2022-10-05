@@ -19,10 +19,6 @@ $(function () {
             },
             function (data) {
                 const obj = JSON.parse(data);
-<<<<<<< HEAD
-                
-=======
->>>>>>> a796928a07cf9d43145dd7494acacc152218398c
                 display.printTableCanchasDisponibles(obj);
                 display.printTableCanchasDisponiblesList(obj);
             });

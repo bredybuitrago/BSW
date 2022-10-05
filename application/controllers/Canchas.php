@@ -182,15 +182,13 @@ class Canchas extends CI_Controller {
 		
 	}
 
-	public function Get_data_local(){
+	public function get_data_local(){
 		$local_id = $this->input->post('local_id');	
+		$local = $this->Dao_cancha_model->GetDataLocalByLocalId($local_id);
 
-		
-		$id_horario = $this->Dao_cancha_model->Get_or_insert_horario_cancha($datosHorario);
-
-
-
-
+		$local->fotos = $this->Dao_cancha_model->GetFotosByLocalId($local_id);
+		$local->canchas = $this->Dao_cancha_model->GetCanchasByLocalId($local_id);
+		echo json_encode($local);
 	}
 
 	public function Get_barrios_locales(){

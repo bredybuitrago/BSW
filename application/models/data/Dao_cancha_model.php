@@ -108,6 +108,17 @@ class Dao_cancha_model extends CI_Model {
                         ->get();
         return $query->row();
     }
+
+    public function GetCanchasByLocalId($local_id){
+        $query = $this->db->select('c.cancha_id, c.local_id, c.tarifa_por_hora, c.estado_id, c.observacion, c.identificacion, 
+                                    tc.tipo_cancha_id, tc.tipo_cancha, tc.estado_id')
+                            ->from('cancha c')
+                            ->join('tipo_cancha tc', 'tc.tipo_cancha_id = c.tipo_cancha_id')
+                            ->where('c.local_id',$local_id)
+                            ->where('c.estado_id',1)
+                        ->get();
+        return $query->result();
+    }
 	
     public function Get_or_insert_horario_cancha($datos_horario){
         $query = $this->db->select('*')
@@ -152,6 +163,59 @@ class Dao_cancha_model extends CI_Model {
 
         return $query->row();
     }
+
+    public function GetDataLocalByLocalId($local_id){
+        $query = $this->db->query("
+            SELECT 
+                l.local_id, 
+                l.nombre_local, 
+                l.numero_canchas, 
+                l.contacto, 
+                l.correo, 
+                l.administrador, 
+                l.direccion, 
+                l.estado_id, 
+                l.cordenadas_lat, 
+                l.cordenadas_lon, 
+                l.descripcion, 
+
+                e.empresa_id, 
+                e.nombre_empresa, 
+                e.nit, 
+                e.correo_empresa, 
+                e.contacto_empresa, 
+                e.nombre_representante, 
+                e.contacto_representante, 
+
+                h.horario_id, 
+                h.dias, 
+                h.hora_inicio, 
+                h.hora_fin, 
+                b.barrio_id, 
+                b.barrio
+            FROM local l
+                INNER JOIN empresa e ON e.empresa_id = l.empresa_id
+                INNER JOIN horario h ON h.horario_id = l.horario_id
+                INNER JOIN barrio b ON b.barrio_id = l.barrio_id
+            WHERE 
+                l.estado_id = 1
+                AND l.local_id = $local_id;
+        ");
+
+        return $query->row();   
+    }
+
+    public function GetFotosByLocalId($local_id){
+        $query = $this->db->select('*')
+                            ->from('fotos_local')
+                            ->where('local_id', $local_id)
+                            ->where('estado_id', 1)
+                        ->get();
+
+        return $query->result();
+    }
+
+
         
     public function GetHorarioByHorarioId($horario_id){
         $query = $this->db->select('*')
