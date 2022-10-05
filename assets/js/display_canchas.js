@@ -44,7 +44,7 @@ $(function () {
 					        </div>
 					      </div>
 					      <div class="why-text">
-					        <h4>Cantidad de canchas: ${cancha.numero_canchas}</h4>
+					        <h1>Cantidad de canchas: ${cancha.numero_canchas}</h1>
 					        <h5>Local "${cancha.nombre_local}"</h5>
 					      </div>
 					    </div>

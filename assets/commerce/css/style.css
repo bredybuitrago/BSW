@@ -916,6 +916,9 @@
      overflow: hidden;
      position: relative;
      margin-bottom: 30px;
+     border: 1px solid #d5d3d3;
+     padding: 13px;
+     margin: 18px 0;
 }
  .products-single .box-img-hover{
      overflow: hidden;
@@ -1806,7 +1809,7 @@
  .list-group-item {
      border: none;
      padding: 5px 20px;
-     font-size: 14px;
+     font-size: 17px;
 }
  .text-muted {
      padding: 10px 0px;
@@ -1985,7 +1988,10 @@
      color: #ffffff;
 }
  .product-categori{
-     margin-bottom: 30px;
+    margin-bottom: 30px;
+    border: 1px solid #878787;
+    padding: 12px;
+    border-radius: 5px;
 }
  .product-categorie-box{
      margin-top: 20px;
@@ -2003,11 +2009,16 @@
      color: #666;
 }
  .why-text.full-width h5{
-     color: #000000;
+     color: #6a6969;
      font-weight: 700;
+     background: #c2dacd;
+     padding: 2px 50px;
+
 }
  .why-text.full-width p{
-     padding-bottom: 20px;
+    padding-bottom: 20px;
+    font-size: 24px;
+    color: #6e6e6e;
 }
  .why-text.full-width a{
      padding: 10px 20px;
