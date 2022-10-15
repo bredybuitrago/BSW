@@ -58,10 +58,10 @@
 }
 
 .carousel-item img{
-	max-height: 540pt;
+	max-height: 350pt;
 }
 
 .carousel-indicators li img {
-	max-height: 125pt;
+	max-height: 76pt !important;
 }
 

@@ -187,8 +187,21 @@ class Canchas extends CI_Controller {
 		$local = $this->Dao_cancha_model->GetDataLocalByLocalId($local_id);
 
 		$local->fotos = $this->Dao_cancha_model->GetFotosByLocalId($local_id);
-		$local->canchas = $this->Dao_cancha_model->GetCanchasByLocalId($local_id);
+
 		echo json_encode($local);
+	}
+
+	public function get_data_canchas_local(){
+		$local_id = $this->input->post('local_id');	
+		$fecha = $this->input->post('fecha');	
+		$canchas = $this->Dao_cancha_model->GetCanchasByLocalId($local_id);
+
+		foreach ($canchas as $indice => $cancha) {
+			$canchas[$indice]->reservas = $this->Dao_cancha_model->GetReservasByCanchaId($canchas[$indice]->cancha_id, $fecha);
+		}
+
+		echo json_encode($canchas);
+
 	}
 
 	public function Get_barrios_locales(){

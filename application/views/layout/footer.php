@@ -51,6 +51,8 @@
 <script src="<?php echo base_url(); ?>assets/plugins/jquery-knob/jquery.knob.min.js"></script>
 <!-- daterangepicker -->
 <script src="<?php echo base_url(); ?>assets/plugins/moment/moment.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/plugins/moment/locale/es-mx.js"></script>
+
 <script src="<?php echo base_url(); ?>assets/plugins/daterangepicker/daterangepicker.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="<?php echo base_url(); ?>assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
@@ -135,6 +137,7 @@
 <?php endif ?>
 
 <?php if ($this->uri->segment(1) == 'Canchas' && $this->uri->segment(2) == 'Reservar_cancha'): ?>
+
     <script src="<?php echo base_url(); ?>assets/js/reservar_cancha.js"></script>
 <?php endif ?>
 

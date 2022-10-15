@@ -119,7 +119,7 @@ class Dao_cancha_model extends CI_Model {
                         ->get();
         return $query->result();
     }
-	
+
     public function Get_or_insert_horario_cancha($datos_horario){
         $query = $this->db->select('*')
                             ->from('horario')
@@ -215,8 +215,17 @@ class Dao_cancha_model extends CI_Model {
         return $query->result();
     }
 
+    public function GetReservasByCanchaId($cancha_id, $fecha){
+        $query = $this->db->select('reserva_id, cancha_id, usuario_id, fecha, hora_inicio, franja_inicio, hora_fin, franja_fin, cantidad_horas')
+                            ->from('reserva')
+                            ->where('cancha_id', $cancha_id)
+                            ->where('fecha', $fecha)
+                        ->get();
 
-        
+        return $query->result();
+
+    }
+
     public function GetHorarioByHorarioId($horario_id){
         $query = $this->db->select('*')
                             ->from('horario')
