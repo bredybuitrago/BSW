@@ -7,12 +7,12 @@
 }
 
 .fondo-login {
-      background: url('../../../assets/images/futbol_11.jpg') no-repeat center center fixed;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      background-size: cover;
-      overflow: hidden;
-    }
+  background: url('../../../assets/images/futbol_11.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+}
 
 .fondo-register{
 	background: url('../../../assets/images/futbol_2.jpg') no-repeat center center fixed;
@@ -63,5 +63,37 @@
 
 .carousel-indicators li img {
 	max-height: 76pt !important;
+}
+
+.tabla_standar .franja_am{
+	background: #fbffb9;
+}
+
+.tabla_standar .franja_pm{
+	background: #7a9dff;
+	color: #fff;
+}
+
+.tabla_standar .td_hora {
+	cursor: pointer;
+}
+
+.fs_canchas{
+	margin-bottom: 30px;
+	background: #fff;
+}
+
+.h2_canchas{
+  letter-spacing: 18px;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.canchas_horarios {
+	overflow: hidden;
+  border: 1px solid #dee2e6;
+  padding: 20px;
+  background: #f3f3f3;
 }
 
