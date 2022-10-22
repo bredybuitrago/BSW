@@ -24,7 +24,6 @@ $(function () {
 			// función que recibe los datos
 			function(data) {
 				const local = JSON.parse(data);
-				console.log(local)
 				reservar.mostrarCarrusel(local.fotos);
 				reservar.llenarIndicadoresFotos(local.fotos);
 				reservar.llenarDatosLocal(local);
@@ -114,7 +113,6 @@ $(function () {
 			// función que recibe los datos
 			function(data) {
 				const canchas = JSON.parse(data);
-				console.log(canchas)
 				reservar.crearHorariosCanchas(canchas);
 			});
 		},
@@ -180,8 +178,6 @@ $(function () {
 
 			let maximo = '4';
 
-			console.log(hora)
-			console.log(franja)
 			if (hora == '9' && franja == 'pm') {
 				maximo = '3';
 			} else if (hora == '10' && franja == 'pm') {
@@ -211,14 +207,14 @@ $(function () {
 		            });
 		        }
 		    }).then((data) => {
-		        console.log(data);
 		    	if (data.isConfirmed) {
 		    		const date = $('#datetimepicker13').datetimepicker('viewDate');
-		    		const fecha_calendario = moment(date._d).format("YYYY-MM-DD");
+		    		const fecha_calendario = moment(date._d).format("LL");
+		    		const fecha = moment(date._d).format("YYYY-MM-DD");
 		    		Swal.fire({
 					  	html: `
 			        		<h2 class="swal2-title" id="swal2-title" style="display: block;">¡Confirma estos datos!</h2>
-			        		<label for="swal2-input" class="swal2-input-label">fecha : ${fecha_calendario}</label>
+			        		<label for="swal2-input" class="swal2-input-label">Fecha : ${fecha_calendario}</label>
 			        		<label for="swal2-input" class="swal2-input-label">Hora inicio: ${hora}:00${franja}</label>
 			        		<label for="swal2-input" class="swal2-input-label">Cantidad horas: ${data.value}</label>
 			        		<label for="swal2-input" class="swal2-input-label">${nombre_local} | cancha: ${cancha_identificacion}</label>
@@ -227,23 +223,42 @@ $(function () {
 					  	showCancelButton: true,
 					  	confirmButtonColor: '#1f844b',
 					  	cancelButtonColor: '#d33',
-					  	confirmButtonText: 'Sí, Separar cancha!',
+					  	confirmButtonText: 'OK, Separar cancha!',
 					  	cancelButtonText: 'Cancelar',
 					}).then((result) => {
 					  	if (result.isConfirmed) {
-					    	Swal.fire(
-						     	'Deleted!',
-						      	'Your file has been deleted.',
-						      	'success'
-						    )
+					  		const datos = {
+					  			hora: hora,
+					  			franja: franja,
+					  			cancha_id: cancha_id,
+					  			fecha: fecha,
+					  			cantidad_horas: data.value
+					  		};
+
+
+					    	reservar.setReservarCanchaHorario(datos);
 					  	} else {
 					  		helper.miniAlert();
 					  	}
 					})
 		    	}
 
-
 		    });
+
+		},
+
+		setReservarCanchaHorario: function(data){
+			console.log(data)
+
+			$.post(base_url + '/Canchas/set_reservar_cancha', {
+				data : data				
+			},
+			// función que recibe los datos
+			function(data) {
+				const response = JSON.parse(data);
+				console.log(response);
+				// reservar.crearHorariosCanchas(canchas);
+			});
 
 
 

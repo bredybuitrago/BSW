@@ -215,5 +215,19 @@ class Canchas extends CI_Controller {
 		echo json_encode($barrios_locales);
 	}
 
+	public function set_reservar_cancha(){
+		// tratamiento para tabla de horario
+		$reserva['cancha_id'] = $this->input->post('data')['cancha_id'];
+		$reserva['usuario_id'] = 15;
+		$reserva['hora_inicio'] = $this->input->post('data')['hora_inicio'];
+		$reserva['franja_inicio'] = $this->input->post('data')['franja_inicio'];
+		$reserva['hora_fin'] = $this->input->post('data')['hora_fin'];
+		$reserva['franja_fin'] = $this->input->post('data')['franja_fin'];
+		$reserva['cantidad_horas'] = $this->input->post('data')['cantidad_horas'];
+
+
+		echo json_encode($barrios_locales);
+	}
+
 }
 
