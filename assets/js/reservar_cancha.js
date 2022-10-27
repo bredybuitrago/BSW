@@ -118,6 +118,7 @@ $(function () {
 		},
 
 		crearHorariosCanchas: function(canchas){
+			console.log(canchas)
 			$('#canchas_horarios').html('');
 			canchas.forEach(function(cancha, indice_cancha){
 				$('#canchas_horarios').append(
@@ -227,13 +228,19 @@ $(function () {
 					  	cancelButtonText: 'Cancelar',
 					}).then((result) => {
 					  	if (result.isConfirmed) {
+
+					  		hora_fin = helper.calcular_hora_fin(hora, franja, data.value);
+
 					  		const datos = {
-					  			hora: hora,
-					  			franja: franja,
 					  			cancha_id: cancha_id,
+					  			hora_inicio: hora,
+					  			franja_inicio: franja,
+					  			hora_fin: hora_fin.hora_final,
+					  			franja_fin: hora_fin.franja_final,
 					  			fecha: fecha,
 					  			cantidad_horas: data.value
 					  		};
+
 
 
 					    	reservar.setReservarCanchaHorario(datos);
@@ -250,13 +257,15 @@ $(function () {
 		setReservarCanchaHorario: function(data){
 			console.log(data)
 
-			$.post(base_url + '/Canchas/set_reservar_cancha', {
+			$.post(base_url + '/Reserva/set_reservar_cancha', {
 				data : data				
 			},
 			// función que recibe los datos
 			function(data) {
-				const response = JSON.parse(data);
-				console.log(response);
+				console.log(data);
+
+				const local = JSON.parse(data);
+				console.log(local);
 				// reservar.crearHorariosCanchas(canchas);
 			});
 
