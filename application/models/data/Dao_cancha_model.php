@@ -216,7 +216,7 @@ class Dao_cancha_model extends CI_Model {
     }
 
     public function GetReservasByCanchaId($cancha_id, $fecha){
-        $query = $this->db->select('reserva_id, cancha_id, usuario_id, fecha, hora_inicio, franja_inicio, hora_fin, franja_fin, cantidad_horas')
+        $query = $this->db->select('reserva_id, cancha_id, usuario_id, fecha, hora, franja, lote')
                             ->from('reserva')
                             ->where('cancha_id', $cancha_id)
                             ->where('fecha', $fecha)

@@ -229,14 +229,14 @@ $(function () {
 					}).then((result) => {
 					  	if (result.isConfirmed) {
 
-					  		hora_fin = helper.calcular_hora_fin(hora, franja, data.value);
+					  		//hora_fin = helper.calcular_hora_fin(hora, franja, data.value);
 
 					  		const datos = {
 					  			cancha_id: cancha_id,
 					  			hora_inicio: hora,
 					  			franja_inicio: franja,
-					  			hora_fin: hora_fin.hora_final,
-					  			franja_fin: hora_fin.franja_final,
+					  			// hora_fin: hora_fin.hora_final,
+					  			// franja_fin: hora_fin.franja_final,
 					  			fecha: fecha,
 					  			cantidad_horas: data.value
 					  		};

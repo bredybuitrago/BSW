@@ -9,6 +9,13 @@ class Dao_reserva_model extends CI_Model {
         return $this->db->insert_id();
     }
 
+    public function get_max_lote(){
+        $query = $this->db->query("
+            SELECT IFNULL(MAX(lote),0) maximo_lote FROM reserva;
+        ");
+
+        return $query->row()->maximo_lote;        
+    }
     
 
 }
