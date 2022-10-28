@@ -39,8 +39,6 @@ class Reserva extends CI_Controller {
 				$franja = $hora_sumada[1];
 			}
 
-
-
 			$datos = array(
 				'message' => 'cancha registrada correctamente',
 				'codigo' => '003',

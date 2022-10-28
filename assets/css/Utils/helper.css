@@ -97,3 +97,15 @@
   background: #f3f3f3;
 }
 
+
+.tabla_standar .reservado {
+	background:red;
+	cursor: no-drop;
+
+}
+
+.tabla_standar .out-time {
+	background:grey;
+	cursor: no-drop;
+
+}

@@ -118,56 +118,71 @@ $(function () {
 		},
 
 		crearHorariosCanchas: function(canchas){
+			let celda;
+			let tabla = '';
+			const hora_actual = moment().format('h');
+			const franja_actual = moment().format('a');
+			const horas = [12,1,2,3,4,5,6,7,8,9,10,11];
+			const horas_franja_am = ['12am','1am','2am','3am','4am','5am','6am','7am','8am','9am','10am','11am'];
+			const horas_franja_pm = ['12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm','9pm','10pm','11pm'];
+			
+			const posicion_hora_am = horas_franja_am.indexOf(`${hora_actual}${franja_actual}`);
+			const posicion_hora_pm = horas_franja_pm.indexOf(`${hora_actual}${franja_actual}`);
+
+			console.log('posicion_hora_am:' + ' ' + posicion_hora_am)
+			console.log('posicion_hora_pm:' + ' ' + posicion_hora_pm)
+
+
 			console.log(canchas)
 			$('#canchas_horarios').html('');
 			canchas.forEach(function(cancha, indice_cancha){
-				$('#canchas_horarios').append(
-					`
-					<fieldset class="border p-2 single-product-details fs_canchas">
-		                <legend  class="float-none w-auto p-2">${cancha.identificacion}</legend>
-		                <h5>${cancha.tipo_cancha}</h5>              
-		                <p>${cancha.observacion}</p>
-		                <table class="table table-bordered text-center tabla_standar table-sm">
-		                  <tbody>
-		                    <tr>
-		                      <td class="td_hora" data-hour="12" data-franja="am" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">12</td>
-		                      <td class="td_hora" data-hour="1" data-franja="am" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">1</td>
-		                      <td class="td_hora" data-hour="2" data-franja="am" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">2</td>
-		                      <td class="td_hora" data-hour="3" data-franja="am" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">3</td>
-		                      <td class="td_hora" data-hour="4" data-franja="am" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">4</td>
-		                      <td class="td_hora" data-hour="5" data-franja="am" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">5</td>
-		                      <td class="td_hora" data-hour="6" data-franja="am" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">6</td>
-		                      <td class="td_hora" data-hour="7" data-franja="am" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">7</td>
-		                      <td class="td_hora" data-hour="8" data-franja="am" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">8</td>
-		                      <td class="td_hora" data-hour="9" data-franja="am" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">9</td>
-		                      <td class="td_hora" data-hour="10" data-franja="am" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">10</td>
-		                      <td class="td_hora" data-hour="11" data-franja="am" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">11</td>
-		                      <td class="franja_am">am <i class="far fa-sun"></i></td>
-		                    </tr>
-		                    <tr>
-		                      <td class="td_hora" data-hour="12" data-franja="pm" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">12</td>
-		                      <td class="td_hora" data-hour="1" data-franja="pm" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">1</td>
-		                      <td class="td_hora" data-hour="2" data-franja="pm" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">2</td>
-		                      <td class="td_hora" data-hour="3" data-franja="pm" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">3</td>
-		                      <td class="td_hora" data-hour="4" data-franja="pm" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">4</td>
-		                      <td class="td_hora" data-hour="5" data-franja="pm" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">5</td>
-		                      <td class="td_hora" data-hour="6" data-franja="pm" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">6</td>
-		                      <td class="td_hora" data-hour="7" data-franja="pm" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">7</td>
-		                      <td class="td_hora" data-hour="8" data-franja="pm" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">8</td>
-		                      <td class="td_hora" data-hour="9" data-franja="pm" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">9</td>
-		                      <td class="td_hora" data-hour="10" data-franja="pm" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">10</td>
-		                      <td class="td_hora" data-hour="11" data-franja="pm" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">11</td>
-		                      <td class="franja_pm">pm <i class="far fa-moon"></i></td>
-		                    </tr>
+					
+				tabla += `<fieldset class="border p-2 single-product-details fs_canchas">
+			                <legend  class="float-none w-auto p-2">${cancha.identificacion}</legend>
+			                <h5>${cancha.tipo_cancha}</h5>              
+			                <p>${cancha.observacion}</p>
+			                <table class="table table-bordered text-center tabla_standar table-sm">
+			                  <tbody>
+			                    <tr>`
 
-		                  </tbody>
-		                </table>
-		            </fieldset>
-					`
-				);
+			                    for (var ihora_am = 0; ihora_am < horas.length; ihora_am++) {
+			                    	
+			                    	// console.log(ihora_am + " " +  posicion_hora_am + " " +"am")
+			                    		
+			                     	tabla += `<td class="${(ihora_am < posicion_hora_am || posicion_hora_am == -1)? "out-time": "td_hora"}" id="${cancha.cancha_id}_${horas[ihora_am]}_am" data-hour="${horas[ihora_am]}" data-franja="am" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">${horas[ihora_am]}</td>`;
+			                     
+			                    }
+			                     
+		                     	tabla +=  `<td class="franja_am">am <i class="far fa-sun"></i></td></tr> <tr>`
 
+			                    for (var ihora_pm = 0; ihora_pm < horas.length; ihora_pm++) {
+			                     	
+			                    	// console.log(ihora_pm + " " +  posicion_hora_pm + " " +"pm")
+			                     	tabla += `<td class="${(ihora_pm < posicion_hora_pm )? "out-time": "td_hora"}" id="${cancha.cancha_id}_${horas[ihora_pm]}_pm" data-hour="${horas[ihora_pm]}" data-franja="pm" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">${horas[ihora_pm]}</td>`;
+			                    
+			                    }
+			                      
+	                    		tabla +=   `<td class="franja_pm">pm <i class="far fa-moon"></i></td></tr>
+
+			                  </tbody>
+			                </table>
+		            	</fieldset>`
+
+				$('#canchas_horarios').append(tabla);
+
+				for (var i = 0; i < canchas[indice_cancha].reservas.length; i++) {
+					celda = $(`#${cancha.cancha_id}_${canchas[indice_cancha].reservas[i].hora}_${canchas[indice_cancha].reservas[i].franja}`);
+					celda.addClass('reservado');
+					celda.removeClass('td_hora');
+
+				}
 
 			});
+
+			
+			
+
+
 		},
 
 		hora_click: function(){
@@ -255,22 +270,23 @@ $(function () {
 		},
 
 		setReservarCanchaHorario: function(data){
-			console.log(data)
 
 			$.post(base_url + '/Reserva/set_reservar_cancha', {
 				data : data				
 			},
 			// función que recibe los datos
 			function(data) {
-				console.log(data);
+				const response = JSON.parse(data);
+				if(response.success)				
+					helper.alert('OK!', 'Espacio reservado con exito!', 'success');
+				else{
+					helper.alert('Ooops!', response.message, 'error');
+					console.log(response.error_detail);
+				}
 
-				const local = JSON.parse(data);
-				console.log(local);
-				// reservar.crearHorariosCanchas(canchas);
+				reservar.listarCanchasHorarios();
+
 			});
-
-
-
 
 		}
 
