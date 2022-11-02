@@ -116,6 +116,7 @@ class Dao_cancha_model extends CI_Model {
                             ->join('tipo_cancha tc', 'tc.tipo_cancha_id = c.tipo_cancha_id')
                             ->where('c.local_id',$local_id)
                             ->where('c.estado_id',1)
+                            ->order_by('c.cancha_id')
                         ->get();
         return $query->result();
     }

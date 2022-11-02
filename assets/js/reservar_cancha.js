@@ -2,6 +2,8 @@ $(function () {
 	reservar = {
 
 		diasDeshabilitados: [],
+		hora_inicio_local: "",
+		hora_final_local: "",
 
 		init: function () {
 			reservar.getDataLocal();
@@ -24,6 +26,9 @@ $(function () {
 			// función que recibe los datos
 			function(data) {
 				const local = JSON.parse(data);
+				console.log(local);
+				reservar.hora_inicio_local = local.hora_inicio.replace(":00","");
+				reservar.hora_final_local = local.hora_fin.replace(":00","");
 				reservar.mostrarCarrusel(local.fotos);
 				reservar.llenarIndicadoresFotos(local.fotos);
 				reservar.llenarDatosLocal(local);
@@ -113,11 +118,23 @@ $(function () {
 			// función que recibe los datos
 			function(data) {
 				const canchas = JSON.parse(data);
-				reservar.crearHorariosCanchas(canchas);
+				reservar.crearHorariosCanchas(canchas,fecha_calendario);
 			});
 		},
 
-		crearHorariosCanchas: function(canchas){
+		crearHorariosCanchas: function(canchas, fecha_calendario){
+			const es_hoy = fecha_calendario == moment().format("YYYY-MM-DD");
+			const horas_toda_franja = ['12am','1am','2am','3am','4am','5am','6am','7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm','8pm','9pm','10pm','11pm'];
+			const horas_laborales = [];
+			const indice_inicio = horas_toda_franja.indexOf(reservar.hora_inicio_local);
+			const indice_final = horas_toda_franja.indexOf(reservar.hora_final_local);
+
+			for (var i = indice_inicio; i < horas_toda_franja.length; i++) {
+				if (i <= indice_final) {
+					horas_laborales.push(horas_toda_franja[i]);
+				}
+			}
+
 			let celda;
 			let tabla = '';
 			const hora_actual = moment().format('h');
@@ -129,14 +146,9 @@ $(function () {
 			const posicion_hora_am = horas_franja_am.indexOf(`${hora_actual}${franja_actual}`);
 			const posicion_hora_pm = horas_franja_pm.indexOf(`${hora_actual}${franja_actual}`);
 
-			console.log('posicion_hora_am:' + ' ' + posicion_hora_am)
-			console.log('posicion_hora_pm:' + ' ' + posicion_hora_pm)
 
-
-			console.log(canchas)
 			$('#canchas_horarios').html('');
 			canchas.forEach(function(cancha, indice_cancha){
-					
 				tabla += `<fieldset class="border p-2 single-product-details fs_canchas">
 			                <legend  class="float-none w-auto p-2">${cancha.identificacion}</legend>
 			                <h5>${cancha.tipo_cancha}</h5>              
@@ -146,20 +158,13 @@ $(function () {
 			                    <tr>`
 
 			                    for (var ihora_am = 0; ihora_am < horas.length; ihora_am++) {
-			                    	
-			                    	// console.log(ihora_am + " " +  posicion_hora_am + " " +"am")
-			                    		
-			                     	tabla += `<td class="${(ihora_am < posicion_hora_am || posicion_hora_am == -1)? "out-time": "td_hora"}" id="${cancha.cancha_id}_${horas[ihora_am]}_am" data-hour="${horas[ihora_am]}" data-franja="am" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">${horas[ihora_am]}</td>`;
-			                     
+			                     	tabla += `<td class="${( (es_hoy && (ihora_am < posicion_hora_am || posicion_hora_am == -1)) || (horas_laborales.indexOf(`${horas[ihora_am]}am`) == -1) )? "out-time": "td_hora"}" id="${cancha.cancha_id}_${horas[ihora_am]}_am" data-hour="${horas[ihora_am]}" data-franja="am" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">${horas[ihora_am]}</td>`;
 			                    }
 			                     
 		                     	tabla +=  `<td class="franja_am">am <i class="far fa-sun"></i></td></tr> <tr>`
 
 			                    for (var ihora_pm = 0; ihora_pm < horas.length; ihora_pm++) {
-			                     	
-			                    	// console.log(ihora_pm + " " +  posicion_hora_pm + " " +"pm")
-			                     	tabla += `<td class="${(ihora_pm < posicion_hora_pm )? "out-time": "td_hora"}" id="${cancha.cancha_id}_${horas[ihora_pm]}_pm" data-hour="${horas[ihora_pm]}" data-franja="pm" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">${horas[ihora_pm]}</td>`;
-			                    
+			                     	tabla += `<td class="${( (es_hoy && (ihora_pm < posicion_hora_pm) ) || (horas_laborales.indexOf(`${horas[ihora_pm]}pm`) == -1) ) ? "out-time": "td_hora"}" id="${cancha.cancha_id}_${horas[ihora_pm]}_pm" data-hour="${horas[ihora_pm]}" data-franja="pm" data-cancha_id="${cancha.cancha_id}" data-cancha_identificacion="${cancha.identificacion}">${horas[ihora_pm]}</td>`;
 			                    }
 			                      
 	                    		tabla +=   `<td class="franja_pm">pm <i class="far fa-moon"></i></td></tr>
@@ -168,7 +173,11 @@ $(function () {
 			                </table>
 		            	</fieldset>`
 
-				$('#canchas_horarios').append(tabla);
+
+			});
+
+			$('#canchas_horarios').append(tabla);
+			canchas.forEach(function(cancha, indice_cancha){
 
 				for (var i = 0; i < canchas[indice_cancha].reservas.length; i++) {
 					celda = $(`#${cancha.cancha_id}_${canchas[indice_cancha].reservas[i].hora}_${canchas[indice_cancha].reservas[i].franja}`);
@@ -176,13 +185,7 @@ $(function () {
 					celda.removeClass('td_hora');
 
 				}
-
 			});
-
-			
-			
-
-
 		},
 
 		hora_click: function(){
@@ -191,16 +194,39 @@ $(function () {
 			const cancha_id = $(this).data('cancha_id');
 			const cancha_identificacion = $(this).data('cancha_identificacion');
 			const nombre_local = $('#h2_nombre_local').text();
+			let tr;
 
-			let maximo = '4';
+			let maximo = 1;
 
-			if (hora == '9' && franja == 'pm') {
-				maximo = '3';
-			} else if (hora == '10' && franja == 'pm') {
-				maximo = '2';
-			} else if (hora == '11' && franja == 'pm') {
-				maximo = '1';
+
+			const horas_toda_franja = ['12_am','1_am','2_am','3_am','4_am','5_am','6_am','7_am','8_am','9_am','10_am','11_am','12_pm','1_pm','2_pm','3_pm','4_pm','5_pm','6_pm','7_pm','8_pm','9_pm','10_pm','11_pm'];
+			let indice_hour = horas_toda_franja.indexOf(`${hora}_${franja}`);
+
+
+			console.log('`${hora}${franja}` ' +  `${hora}${franja}`)
+
+			console.log('indice_hour ' + indice_hour);
+
+			while(maximo < 4){
+				indice_hour += 1;
+				tr = $(`#${cancha_id}_${horas_toda_franja[indice_hour]}`);
+
+				if (tr.hasClass('reservado') || tr.hasClass('out-time') || tr.length == 0) {
+					break;
+				}
+				maximo += 1;
 			}
+
+			console.log('maximo ' + maximo);
+
+
+			// if (hora == '9' && franja == 'pm') {
+			// 	maximo = '3';
+			// } else if (hora == '10' && franja == 'pm') {
+			// 	maximo = '2';
+			// } else if (hora == '11' && franja == 'pm') {
+			// 	maximo = '1';
+			// }
 
 			Swal.fire({
 		        html: `
@@ -243,15 +269,10 @@ $(function () {
 					  	cancelButtonText: 'Cancelar',
 					}).then((result) => {
 					  	if (result.isConfirmed) {
-
-					  		//hora_fin = helper.calcular_hora_fin(hora, franja, data.value);
-
 					  		const datos = {
 					  			cancha_id: cancha_id,
 					  			hora_inicio: hora,
 					  			franja_inicio: franja,
-					  			// hora_fin: hora_fin.hora_final,
-					  			// franja_fin: hora_fin.franja_final,
 					  			fecha: fecha,
 					  			cantidad_horas: data.value
 					  		};

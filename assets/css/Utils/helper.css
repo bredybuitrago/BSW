@@ -99,13 +99,15 @@
 
 
 .tabla_standar .reservado {
-	background:red;
-	cursor: no-drop;
-
+  background: #007bff;
+  cursor: no-drop;
+  color: #FFF;
 }
 
 .tabla_standar .out-time {
-	background:grey;
-	cursor: no-drop;
+	background: #dbdbdb;
+  cursor: no-drop; 
+  cursor: not-allowed;
+}
 
 }
