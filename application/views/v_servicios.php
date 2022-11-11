@@ -1,70 +1,151 @@
-<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/tarjetas.css"> -->
+<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/tarjetas.css"> 
+
 
 <section>
   <div class="container-fluid">
-    <div class="container">
+    <div class="container" style="max-width: 1478px;">
       <div class="row">
-        <div class="col-sm-4">
-          <div class="carta text-center">
-            <div class="title">
-              <i class="fa fa-paper-plane" aria-hidden="true"></i>
-              <h2>Basic</h2>
-            </div>
-            <div class="price">
-              <h4><sup>$</sup>25</h4>
-            </div>
-            <div class="option">
-              <ul>
-              <li> <i class="fa fa-check" aria-hidden="true"></i> 10 GB Space </li>
-              <li> <i class="fa fa-check" aria-hidden="true"></i> 3 Domain Names </li>
-              <li> <i class="fa fa-check" aria-hidden="true"></i> 20 Email Address </li>
-              <li> <i class="fa fa-times" aria-hidden="true"></i> Live Support </li>
-              </ul>
-            </div>
-            <a class="showModalServicios">Seleccionar </a>
-          </div>
+        
+        <div class="col-lg-3 col-md-6">
+          <div class="wrapper_f showModalServicios">
+            <div class="clash-card goblin">
+              <div class="clash-card__image clash-card__image--goblin">
+                <img src="<?php echo base_url(); ?>assets/images/Cards/131066.512.webp" alt="Demo" />
+              </div>
+              <div class="clash-card__level clash-card__level--goblin"><i class="fas fa-heart"></i> <i class="fas fa-heart"></i> <i class="fas fa-heart"></i> <i class="fas fa-heart"></i> <i class="fas fa-heart"></i></div>
+              <div class="clash-card__unit-name">FREE!</div>
+              <div class="clash-card__unit-description">
+                Como nos gusta a todos, GRATIS! con esta opción podrás probar la plataforma en tu negocio durante 30 días sin pagar, comienza a trabajar con nosotros
+              </div>
+
+              <div class="clash-card__unit-stats clash-card__unit-stats--goblin clearfix">
+                <div class="one-third">
+                  <div class="stat">30<sup>SOLO</sup></div>
+                  <div class="stat-value">DÍAS</div>
+                </div>
+
+                <div class="one-third">
+                  <div class="stat">1</div>
+                  <div class="stat-value">cancha</div>
+                </div>
+
+                <div class="one-third no-border">
+                  <div class="stat">$0</div>
+                  <div class="stat-value">Costo</div>
+                </div>
+
+              </div>
+
+            </div> <!-- end clash-card goblin-->
+          </div> <!-- end wrapper_f showModalServicios -->
+        </div>        
+
+
+
+        <div class="col-lg-3 col-md-6">
+          <div class="wrapper_f showModalServicios">
+            <div class="clash-card barbarian">
+              <div class="clash-card__image clash-card__image--barbarian">
+                <img src="<?php echo base_url(); ?>assets/images/Cards/55815GS_1024x1024@2x.webp" alt="Bronce" />
+              </div>
+              <div class="clash-card__level clash-card__level--barbarian"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></div>
+              <div class="clash-card__unit-name">Bronce</div>
+              <div class="clash-card__unit-description">
+                Puedes aceptar pagos en línea directamente a través de tu sitio. Este plan es perfecto para cualquier pequeña empresa, todo lo que necesitas está en este plan
+              </div>
+
+              <div class="clash-card__unit-stats clash-card__unit-stats--barbarian clearfix">
+                <div class="one-third">
+                  <div class="stat">1<sup></sup></div>
+                  <div class="stat-value">Locales</div>
+                </div>
+
+                <div class="one-third">
+                  <div class="stat">2</div>
+                  <div class="stat-value">Canchas</div>
+                </div>
+
+                <div class="one-third no-border">
+                  <div class="stat">$150K</div>
+                  <div class="stat-value">Mensualidad</div>
+                </div>
+
+              </div>
+
+            </div> <!-- end clash-card barbarian-->
+          </div> <!-- end wrapper -->
         </div>
-        <!-- END Col one -->
-        <div class="col-sm-4">
-          <div class="carta text-center">
-            <div class="title">
-              <i class="fa fa-plane" aria-hidden="true"></i>
-              <h2>Standard</h2>
-            </div>
-            <div class="price">
-              <h4><sup>$</sup>50</h4>
-            </div>
-            <div class="option">
-              <ul>
-              <li> <i class="fa fa-check" aria-hidden="true"></i> 50 GB Space </li>
-              <li> <i class="fa fa-check" aria-hidden="true"></i> 5 Domain Names </li>
-              <li> <i class="fa fa-check" aria-hidden="true"></i> Unlimited Email Address </li>
-              <li> <i class="fa fa-times" aria-hidden="true"></i> Live Support </li>
-              </ul>
-            </div>
-            <a class="showModalServicios">Seleccionar </a>
-          </div>
+
+
+
+        <div class="col-lg-3 col-md-6">
+          <div class="wrapper_f showModalServicios">
+            <div class="clash-card giant">
+              <div class="clash-card__image clash-card__image--giant">
+                <img src="<?php echo base_url(); ?>assets/images/Cards/11516-S_1024x1024@2x.webp" />
+              </div>
+              <div class="clash-card__level clash-card__level--giant"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+              <div class="clash-card__unit-name">Plata</div>
+              <div class="clash-card__unit-description">
+                Puedes elegir entre 2 locales de dos canchas o 1 local con hasta 4 canchas, pagos directamente a través de tu sitio. Conoces el termino calidad precio, ¿eh?!
+              </div>
+
+              <div class="clash-card__unit-stats clash-card__unit-stats--giant clearfix">
+                <div class="one-third">
+                  <div class="stat">1 o 2</div>
+                  <div class="stat-value">locales</div>
+                </div>
+
+                <div class="one-third">
+                  <div class="stat">4<sup>total</sup></div>
+                  <div class="stat-value">canchas</div>
+                </div>
+
+                <div class="one-third no-border">
+                  <div class="stat">$280k</div>
+                  <div class="stat-value">Mensualidad</div>
+                </div>
+
+              </div>
+
+            </div> <!-- end clash-card giant-->
+          </div> <!-- end wrapper_f showModalServicios -->
         </div>
+
+
         <!-- END Col two -->
-        <div class="col-sm-4">
-          <div class="carta text-center">
-            <div class="title">
-              <i class="fa fa-rocket" aria-hidden="true"></i>
-              <h2>Premium</h2>
-            </div>
-            <div class="price">
-              <h4><sup>$</sup>100</h4>
-            </div>
-            <div class="option">
-              <ul>
-              <li> <i class="fa fa-check" aria-hidden="true"></i> Unlimited GB Space </li>
-              <li> <i class="fa fa-check" aria-hidden="true"></i> 30 Domain Names </li>
-              <li> <i class="fa fa-check" aria-hidden="true"></i> Unlimited Email Address </li>
-              <li> <i class="fa fa-check" aria-hidden="true"></i> Live Support </li>
-              </ul>
-            </div>
-            <a class="showModalServicios">Seleccionar </a>
-          </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="wrapper_f showModalServicios">
+            <div class="clash-card archer">
+              <div class="clash-card__image clash-card__image--archer">
+                <img src="<?php echo base_url(); ?>assets/images/Cards/trophy.webp" alt="archer" />
+              </div>
+              <div class="clash-card__level clash-card__level--archer"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+              <div class="clash-card__unit-name">ORO</div>
+              <div class="clash-card__unit-description">
+                Te gusta lo mejor de lo mejor! Este plan es para los grandes, tener hasta 4 locales, hasta 12 canchas, ¿listo para posicionar a tu empresa en lo más alto del reconocimiento?
+              </div>
+
+              <div class="clash-card__unit-stats clash-card__unit-stats--archer clearfix">
+                <div class="one-third">
+                  <div class="stat">4</div>
+                  <div class="stat-value">locales</div>
+                </div>
+
+                <div class="one-third">
+                  <div class="stat">12<sup>total</sup></div>
+                  <div class="stat-value">canchas</div>
+                </div>
+
+                <div class="one-third no-border">
+                  <div class="stat">$600K</div>
+                  <div class="stat-value">Mensualidad</div>
+                </div>
+
+              </div>
+
+            </div> <!-- end clash-card archer-->
+          </div> <!-- end wrapper_f showModalServicios -->
         </div>
         <!-- END Col three -->
       </div>
